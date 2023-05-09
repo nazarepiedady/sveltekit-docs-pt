@@ -1,5 +1,23 @@
 # @sveltejs/kit
 
+## 1.15.9
+
+### Patch Changes
+
+- fix: correctly replace state when `data-sveltekit-replacestate` is used with a hash link ([#9751](https://github.com/sveltejs/kit/pull/9751))
+
+- fix: compute trailing slash on page server / data request ([#9738](https://github.com/sveltejs/kit/pull/9738))
+
+- fix: update vite-plugin-svelte to fix windows resolution issue ([#9769](https://github.com/sveltejs/kit/pull/9769))
+
+## 1.15.8
+
+### Patch Changes
+
+- chore: revert undici pin and upgrade version ([#9740](https://github.com/sveltejs/kit/pull/9740))
+
+- chore: upgrade vite-plugin-svelte for resolve improvements and warnings ([#9742](https://github.com/sveltejs/kit/pull/9742))
+
 ## 1.15.7
 
 ### Patch Changes
