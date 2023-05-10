@@ -20,17 +20,17 @@
 </script>
 
 <svelte:head>
-	<title>SvelteKit • Web development, streamlined</title>
+	<title>SvelteKit • Desenvolvimento da web, simplificado</title>
 
 	<meta name="twitter:title" content="SvelteKit" />
-	<meta name="twitter:description" content="Web development, streamlined" />
-	<meta name="description" content="SvelteKit is the official Svelte application framework" />
+	<meta name="twitter:description" content="Desenvolvimento da web, simplificado" />
+	<meta name="description" content="SvelteKit é a abstração de aplicação de Svelte oficial." />
 
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="SvelteKit • Web development, streamlined" />
+	<meta property="og:title" content="SvelteKit • Desenvolvimento da web, simplificado" />
 	<meta
 		property="og:description"
-		content="SvelteKit is the official Svelte application framework"
+		content="SvelteKit é a abstração de aplicação de Svelte oficial."
 	/>
 	<meta property="og:url" content="https://kit.svelte.dev/" />
 	<meta
@@ -56,9 +56,9 @@
 
 	<footer>
 		<p>
-			SvelteKit is <a target="_blank" rel="noreferrer" href="https://github.com/sveltejs/kit"
-				>free and open source software</a
-			> released under the MIT license.
+			SvelteKit é <a target="_blank" rel="noreferrer" href="https://github.com/sveltejs/kit"
+				>software livre e de código-aberto</a
+			> lançado sob a licença MIT.
 		</p>
 	</footer>
 </div>
