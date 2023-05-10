@@ -5,38 +5,15 @@
 <Section --background="var(--sk-back-1)">
 	<div class="container">
 		<div class="features">
-			<h2><span>features? we got 'em.</span></h2>
+			<h2><span>funcionalidades? temos todas.</span></h2>
 			<p class="wall">
-				Mix and match <strong>prerendered</strong> pages for maximum performance with dynamic
-				<strong>server-side rendering</strong> for maximum flexibility. Turn your app into a
-				client-rendered
-				<strong>PWA</strong> with a single line of code, for the whole thing or just one page. Use
-				accessible <strong>client-side routing</strong> with automatic
-				<strong>preloading</strong> for slick, instantaneous navigation that doesn't reload your
-				entire page (and your analytics, and all that other junk). Protect your users with automatic
-				<strong>CSRF protection</strong>
-				and easy-to-use
-				<strong>Content Security Policy</strong> configuration. Keep your secrets to yourself with
-				advanced <strong>environment variable</strong> handling. Handle errors gracefully and
-				<strong>securely</strong>. Load data
-				<strong>directly from your database</strong>
-				and connect your back end to your front end with <strong>type-safe</strong> data loading and
-				built-in <strong>form actions</strong>
-				that work with or without JavaScript. <strong>Co-exist</strong> with other client-side
-				routing frameworks on the same page. Add service workers for <strong>offline</strong>
-				support. Generate <strong>AMP-compliant</strong>
-				pages if you really have to. Build complex UIs with unusually powerful
-				<strong>filesystem-based routes</strong>. Nested layouts? Duh. Learn
-				<strong>web standards</strong>
-				that work across environments. Integrate with <strong>Tailwind</strong>
-				and <strong>Playwright</strong> and <strong>Vitest</strong> and <strong>Storybook</strong>
-				and, well, whatever you want. Build <strong>libraries</strong> as well as apps.
-				<strong>Deploy anywhere</strong> with adapters.
+				Misture e combine as páginas <strong>pré-interpretadas</strong> para o máximo desempenho com a <strong>interpretação dinâmica no lado do servidor</strong> para máxima flexibilidade. Transforme a tua aplicação numa <strong>PWA</strong> gerada pelo cliente com uma única de código, para a coisa inteira ou apenas uma página. Use o <strong>roteamento acessível do lado do cliente</strong> com <strong>pré-carregamento</strong> automático para navegação instantânea habilidosa que não recarrega a tua página inteira (e as tuas analises, e todas as outras tralhas). Proteja os teus utilizadores com <strong>proteção de CSRF</strong> automática e configuração de <strong>Política de Segurança de Conteúdo</strong> fácil de usar. Mantenha os teus segredos contigo mesmo com a manipulação de <strong>variável de ambiente</strong> avançada. Manipule os erros graciosamente e <strong>com segurança</strong>. Carregue os dados <strong>diretamente da tua base de dados</strong> e conecte o teu backend ao teu frontend com carregamento de dados com <strong>segurança de tipo</strong> e <strong>ações de formulário</strong> embutidas que trabalham com ou sem JavaScript. <strong>Co-exista</strong> com outras abstrações de roteamento na mesma página. Adicione operários de serviço para suporte <strong>offline</strong>. Gere páginas <strong>compatíveis com a AMP</strong> se realmente tiveres. Construa interfaces de utilizador complexas com as excecionalmente poderosas <strong>rotas baseadas no sistema de ficheiro</strong>. Disposições encaixadas? Duh. Aprenda <strong>padrões de web</strong> que funcionam através dos ambientes. Integra com <strong>Tailwind</strong>
+				e <strong>Playwright</strong> e <strong>Vitest</strong> e <strong>Storybook</strong> e, bem, o que quiseres. Construa <strong>bibliotecas</strong> bem como aplicações. <strong>Implemente em qualquer parte</strong> com os adaptadores.
 			</p>
 
 			<p>
-				SvelteKit is the framework that
-				<strong>grows with you</strong>, whatever you end up building.
+				SvelteKit é uma abstração que
+				<strong>cresce contigo</strong>, seja o que for que termines por construir.
 			</p>
 		</div>
 	</div>
