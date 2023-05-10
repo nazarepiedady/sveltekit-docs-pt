@@ -2,7 +2,7 @@
 	"@context": "http://schema.org",
 	"@type": "SoftwareSourceCode",
 	"name": "SvelteKit",
-	"description": "SvelteKit is the official Svelte application framework.",
+	"description": "SvelteKit é a abstração de aplicação de Svelte oficial.",
 	"url": "https://kit.svelte.dev/",
 	"codeRepository": "https://github.com/sveltejs/kit",
 	"dateCreated": "2020-10-15T16:00:00",
@@ -32,7 +32,7 @@
 		"sameAs": [
 			"https://github.com/Rich-Harris",
 			"https://twitter.com/Rich_Harris"
-		]	
+		]
 	}, {
 		"@type": "Person",
 		"name": "Ben McCann",
@@ -45,7 +45,7 @@
 			"https://angel.co/ben-mccann",
 			"https://www.crunchbase.com/person/benjamin-mccann",
 			"https://www.linkedin.com/in/benmccann"
-		]	
+		]
 	}, {
 		"@type": "Person",
 		"name": "Simon Holthausen",
@@ -53,7 +53,7 @@
 		"sameAs": [
 			"https://github.com/dummdidumm",
 			"https://twitter.com/dummdidumm_"
-		]	
+		]
 	}, {
 		"@type": "Person",
 		"name": "Ignatius Bagus",
@@ -64,7 +64,7 @@
 			"https://github.com/ignatiusmb",
 			"https://gitlab.com/ignatiusmb",
 			"https://www.linkedin.com/in/ignatiusmb"
-		]	
+		]
 	}, {
 		"@type": "Person",
 		"name": "Conduitry",
@@ -72,7 +72,7 @@
 		"image": "https://avatars.githubusercontent.com/u/16696352",
 		"sameAs": [
 			"https://github.com/Conduitry"
-		]	
+		]
 	}, {
 		"@type": "Person",
 		"name": "Dominik Göpel",
@@ -81,7 +81,7 @@
 		"sameAs": [
 			"https://github.com/dominikg",
 			"https://m.webtoo.ls/@dominikg"
-		]	
+		]
 	}, {
 		"@type": "Person",
 		"name": "Bjorn Lu",
@@ -93,6 +93,6 @@
 			"https://m.webtoo.ls/@bluwy",
 			"https://www.linkedin.com/in/bjorn-lu-3302a31b5",
 			"https://www.reddit.com/user/IamLUG"
-		]	
+		]
 	}]
 }
