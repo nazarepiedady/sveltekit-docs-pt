@@ -24,7 +24,7 @@
 		<svelte:fragment slot="nav-right">
 			<NavItem
 				selected={$page.url.pathname.startsWith(`${base}/docs`) || undefined}
-				href="{base}/docs">Docs</NavItem
+				href="{base}/docs">Documentação</NavItem
 			>
 			<NavItem
 				selected={$page.url.pathname.startsWith(`${base}/faq`) || undefined}
@@ -52,10 +52,10 @@
 	<div class="banner" slot="banner-bottom">
 		<a target="_blank" rel="noopener noreferrer" href="https://hack.sveltesociety.dev/">
 			<span class="small">
-				<strong>Announcing SvelteHack</strong> Participate →
+				<strong>Anunciando SvelteHack</strong> Participe →
 			</span>
 			<span class="large">
-				<strong>Announcing SvelteHack</strong> Our first hackathon with over $12,000 in prizes →
+				<strong>Anunciando a SvelteHack</strong> A nossa primeira hackathon com mais de $12,000 em prémios →
 			</span>
 		</a>
 		<button on:click={() => (banner_height = '0px')}> ✕ </button>
