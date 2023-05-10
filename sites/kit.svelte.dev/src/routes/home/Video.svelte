@@ -132,8 +132,8 @@
 				on:change={() => (has_used_controls = true)}
 			/>
 
-			<img style:display={captioned ? 'block' : 'none'} src={cc_on} alt="hide subtitles" />
-			<img style:display={captioned ? 'none' : 'block'} src={cc_off} alt="show subtitles" />
+			<img style:display={captioned ? 'block' : 'none'} src={cc_on} alt="esconder legendas" />
+			<img style:display={captioned ? 'none' : 'block'} src={cc_off} alt="mostrar legendas" />
 		</label>
 
 		<label class="mute" class:unused={!has_used_controls}>
@@ -144,8 +144,8 @@
 				on:change={() => (has_used_controls = true)}
 			/>
 
-			<img style:display={muted ? 'block' : 'none'} src={volume_off} alt="unmute" />
-			<img style:display={muted ? 'none' : 'block'} src={volume_high} alt="mute" />
+			<img style:display={muted ? 'block' : 'none'} src={volume_off} alt="desabafar" />
+			<img style:display={muted ? 'none' : 'block'} src={volume_high} alt="abafar" />
 		</label>
 	</div>
 
@@ -161,8 +161,8 @@
 			}}
 		/>
 
-		<img style:display={paused ? 'block' : 'none'} src={play} alt="play" />
-		<img style:display={paused ? 'none' : 'block'} src={pause} alt="pause" />
+		<img style:display={paused ? 'block' : 'none'} src={play} alt="reproduzir" />
+		<img style:display={paused ? 'none' : 'block'} src={pause} alt="pausar" />
 	</label>
 </div>
 
