@@ -24,16 +24,16 @@
 				/>
 			</svg>
 
-			see for yourself
+			veja por ti mesmo
 		</h2>
 		<div class="try">
 			<TryTerminal />
 		</div>
 	</div>
 	<p class="create-an-app">
-		...or
-		<a target="_blank" rel="noreferrer" href="https://sveltekit.new"> create an app </a>
-		on StackBlitz.
+		...ou
+		<a target="_blank" rel="noreferrer" href="https://sveltekit.new"> crie uma aplicação </a>
+		na StackBlitz.
 	</p>
 </Section>
 
