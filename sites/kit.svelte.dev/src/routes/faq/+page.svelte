@@ -11,12 +11,12 @@
 	<title>FAQ • SvelteKit</title>
 
 	<meta name="twitter:title" content="SvelteKit FAQ" />
-	<meta name="twitter:description" content="Frequently asked questions about SvelteKit" />
-	<meta name="description" content="Frequently asked questions about SvelteKit" />
+	<meta name="twitter:description" content="Questões feitas com frequência sobre a SvelteKit" />
+	<meta name="description" content="Questões feitas com frequência sobre a SvelteKit" />
 </svelte:head>
 
 <div class="faqs text">
-	<h1>Frequently Asked Questions</h1>
+	<h1>Questões Feitas Com Frequência</h1>
 	<div class="faqs-content">
 		<section>
 			{#each data.sections as faq}
