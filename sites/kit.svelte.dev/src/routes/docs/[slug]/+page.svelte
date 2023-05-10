@@ -16,18 +16,18 @@
 </script>
 
 <svelte:head>
-	<title>{data.page.title} • Docs • SvelteKit</title>
+	<title>{data.page.title} • Documentação • SvelteKit</title>
 
-	<meta name="twitter:title" content="SvelteKit docs" />
-	<meta name="twitter:description" content="{data.page.title} • SvelteKit documentation" />
-	<meta name="Description" content="{data.page.title} • SvelteKit documentation" />
+	<meta name="twitter:title" content="Documentação da SvelteKit" />
+	<meta name="twitter:description" content="{data.page.title} • Documentação da SvelteKit" />
+	<meta name="Description" content="{data.page.title} • Documentação da SvelteKit" />
 </svelte:head>
 
 <div class="text content">
 	<h1>{data.page.title}</h1>
 
 	<a class="edit" href="https://github.com/sveltejs/kit/edit/master/documentation/{data.page.file}">
-		<Icon size={50} name="edit" /> Edit this page on GitHub
+		<Icon size={50} name="edit" /> Editar esta página na GitHub
 	</a>
 
 	<section>
