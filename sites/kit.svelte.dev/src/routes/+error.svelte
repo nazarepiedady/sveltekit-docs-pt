@@ -12,7 +12,7 @@
 
 <div class="container">
 	{#if $page.status === 404}
-		<h1>Not found!</h1>
+		<h1>Não encontrado!</h1>
 	{:else if online}
 		<h1>Yikes!</h1>
 
@@ -20,17 +20,15 @@
 			<p class="error">{$page.status}: {$page.error.message}</p>
 		{/if}
 
-		<p>Please try reloading the page.</p>
+		<p>Tente recarregar a página</p>
 
 		<p>
-			If the error persists, please drop by <a href="https://svelte.dev/chat">Discord chatroom</a>
-			and let us know, or raise an issue on
-			<a href="https://github.com/sveltejs/svelte">GitHub</a>. Thanks!
+			Se o erro persistir, visite-nos na <a href="https://svelte.dev/chat">Discord</a> e deixe-nos saber, ou levante uma questão na <a href="https://github.com/sveltejs/svelte">GitHub</a>. Obrigado!
 		</p>
 	{:else}
-		<h1>It looks like you're offline</h1>
+		<h1>Parece que estás offline</h1>
 
-		<p>Reload the page once you've found the internet.</p>
+		<p>Recarregue a página assim que estiveres ligado a internet.</p>
 	{/if}
 </div>
 
