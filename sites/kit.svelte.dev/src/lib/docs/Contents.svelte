@@ -4,7 +4,7 @@
 	export let contents = [];
 </script>
 
-<nav aria-label="Docs">
+<nav aria-label="Documentação">
 	<ul class="sidebar">
 		{#each contents as section}
 			<li>
