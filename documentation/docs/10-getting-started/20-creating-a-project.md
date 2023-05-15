@@ -1,8 +1,8 @@
 ---
-title: Creating a project
+title: Criando um projeto
 ---
 
-The easiest way to start building a SvelteKit app is to run `npm create`:
+A maneira mais fácil de começar a construir uma aplicação de SvelteKit é executar `npm create`:
 
 ```bash
 npm create svelte@latest my-app
@@ -11,15 +11,15 @@ npm install
 npm run dev
 ```
 
-The first command will scaffold a new project in the `my-app` directory asking you if you'd like to set up some basic tooling such as TypeScript. See the FAQ for [pointers on setting up additional tooling](/faq#integrations). The subsequent commands will then install its dependencies and start a server on [localhost:5173](http://localhost:5173).
+O primeiro comando estruturará um novo projeto no diretório `my-app` perguntando-te se gostarias de configurar algum ferramental básico tal como TypeScript. Consulte as Questões Frequentes por [indicações sobre configurar ferramental adicional](/faq#integrations). Os comandos subsequentes depois instalarão suas dependências e começará um servidor no [localhost:5173](http://localhost:5173).
 
-There are two basic concepts:
+Existem dois conceitos básicos:
 
-- Each page of your app is a [Svelte](https://svelte.dev) component
-- You create pages by adding files to the `src/routes` directory of your project. These will be server-rendered so that a user's first visit to your app is as fast as possible, then a client-side app takes over
+- Cada página da tua aplicação é um componente de [Svelte](https://svelte.dev).
+- Tu crias páginas adicionando ficheiros ao diretório `src/routes` do teu projeto. Estes serão interpretado pelo servidor para que a primeira visita do utilizador à tua aplicação seja o mais rápido possível, depois a aplicação no lado do cliente assume o controlo.
 
-Try editing the files to get a feel for how everything works.
+Experimente editar os ficheiros para sentires como tudo funciona.
 
-## Editor setup
+## Configuração do editor
 
-We recommend using [Visual Studio Code (aka VS Code)](https://code.visualstudio.com/download) with [the Svelte extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode), but [support also exists for numerous other editors](https://sveltesociety.dev/tools#editor-support).
+Nós recomendamos usar o [Visual Studio Code (mais conhecido como VS Code)](https://code.visualstudio.com/download) com [a extensão de Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode), mas [também existe suporte para numerosos outros editores](https://sveltesociety.dev/tools#editor-support).
