@@ -1,8 +1,8 @@
 ---
-title: Project structure
+title: Estrutura do projeto
 ---
 
-A typical SvelteKit project looks like this:
+Um projeto de SvelteKit normal parece-se com isto:
 
 ```bash
 my-project/
@@ -29,63 +29,63 @@ my-project/
 └ vite.config.js
 ```
 
-You'll also find common files like `.gitignore` and `.npmrc` (and `.prettierrc` and `.eslintrc.cjs` and so on, if you chose those options when running `npm create svelte@latest`).
+Também encontrarás ficheiros comuns como `.gitignore` e `.npmrc` (e `.prettierrc` e `.eslintrc.cjs`) e assim por diante, se escolheste aquelas opções quando executares `npm create svelte@latest`).
 
-## Project files
+## Ficheiros do projeto
 
 ### src
 
-The `src` directory contains the meat of your project. Everything except `src/routes` and `src/app.html` is optional.
+O diretório `src` contém a carne do teu projeto. Tudo exceto `src/routes` e `src/app.html` é opcional.
 
-- `lib` contains your library code (utilities and components), which can be imported via the [`$lib`](modules#$lib) alias, or packaged up for distribution using [`svelte-package`](packaging)
-  - `server` contains your server-only library code. It can be imported by using the [`$lib/server`](server-only-modules) alias. SvelteKit will prevent you from importing these in client code.
-- `params` contains any [param matchers](advanced-routing#matching) your app needs
-- `routes` contains the [routes](routing) of your application. You can also colocate other components that are only used within a single route here
-- `app.html` is your page template — an HTML document containing the following placeholders:
-  - `%sveltekit.head%` — `<link>` and `<script>` elements needed by the app, plus any `<svelte:head>` content
-  - `%sveltekit.body%` — the markup for a rendered page. This should live inside a `<div>` or other element, rather than directly inside `<body>`, to prevent bugs caused by browser extensions injecting elements that are then destroyed by the hydration process. SvelteKit will warn you in development if this is not the case
-  - `%sveltekit.assets%` — either [`paths.assets`](configuration#paths), if specified, or a relative path to [`paths.base`](configuration#paths)
-  - `%sveltekit.nonce%` — a [CSP](configuration#csp) nonce for manually included links and scripts, if used
-  - `%sveltekit.env.[NAME]%` - this will be replaced at render time with the `[NAME]` environment variable, which must begin with the [`publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (usually `PUBLIC_`). It will fallback to `''` if not matched.
-- `error.html` is the page that is rendered when everything else fails. It can contain the following placeholders:
-  - `%sveltekit.status%` — the HTTP status
-  - `%sveltekit.error.message%` — the error message
-- `hooks.client.js` contains your client [hooks](/docs/hooks)
-- `hooks.server.js` contains your server [hooks](/docs/hooks)
-- `service-worker.js` contains your [service worker](/docs/service-workers)
+- `lib` contém o código da tua biblioteca (utilitários e componentes), que podem ser importados através do pseudónimo [`$lib`](modules#$lib), ou empacotado para distribuição usando [`svelte-package`](packaging).
+	- `server` contém apenas o código da tua biblioteca do servidor. Ele pode ser importado usando o pseudónimo [`$lib/server`](server-only-modules). A SvelteKit impedir-te-á de importar estes no código do cliente.
+- `params` contém quaisquer [correspondentes de parâmetro](advanced-routing#matching) que a tua aplicação precisa
+- `routes` contém as [rotas](routing) da tua aplicação. Tu podes também colocar neste, outros componentes que apenas são usados dentro numa única rota.
+- `app.html` é o modelo de marcação de hipertexto da tua página — um documento de HTML contendo os seguintes espaços reservados:
+	- `%sveltekit.head%` — os elementos `<link>` e `<script>` necessários pela aplicação, mais qualquer conteúdo de `<svelte:head>`.
+	- `%sveltekit.body%` — a marcação para uma página interpretada. Isto deve morar dentro dum `<div>` ou outro elemento, ao invés de diretamente dentro de `<body>`, para evitar erros de programação causados pelas extensões de navegador injetando elementos que são depois destruídos pelo processo de hidratação. A SvelteKit avisar-te-á no desenvolvimento se este não for o caso.
+	- `%sveltekit.assets%` — ou [`paths.assets`](configuration#paths), se especificado, ou um caminho relativo para [`paths.base`](configuration#paths)
+	- `%sveltekit.nonce%` — um [CSP](configuration#csp) usado para ligações e programas incluídos manualmente, se usados.
+	- `%sveltekit.env.[NAME]%` - isto será substituído no momento da interpretação com a variável de ambiente `[NAME]`, que deve começar com a [`publicPrefix`](configuration#env) (normalmente `PUBLIC_`). Isto retornará para `''` se não for correspondido.
+- `error.html` é a página que é desenhada quando todo o resto falhar. Ela pode conter os seguintes espaços reservados:
+	- `%sveltekit.status%` — o estado do HTTP
+  - `%sveltekit.error.message%` — a mensagem do erro
+- `hooks.client.js` contém os teus [gatilhos](/docs/hooks) de cliente
+- `hooks.server.js` contém os teus [gatilhos](/docs/hooks) de servidor
+- `service-worker.js` contém o teu [operário de serviço](/docs/service-workers)
 
-(Whether the project contains `.js` or `.ts` files depends on whether you opt to use TypeScript when you create your project. You can switch between JavaScript and TypeScript in the documentation using the toggle at the bottom of this page.)
+(Se o projeto contém ficheiros `.js` ou `.ts` depende se optares usar TypeScript quando crias o teu projeto. Tu podes alternar entre JavaScript e TypeScript na documentação usando o alternador no fundo desta página.)
 
-If you added [Vitest](https://vitest.dev) when you set up your project, your unit tests will live in the `src` directory with a `.test.js` extension.
+Se adicionaste a [Vitest](https://vitest.dev) quando configuraste o teu projeto, os teus testes unitários morarão no diretório `src` com uma extensão `.test.js`.
 
 ### static
 
-Any static assets that should be served as-is, like `robots.txt` or `favicon.png`, go in here.
+Quaisquer recursos estáticos que deveriam ser servidos como estão, como `robots.txt` ou `favicon.png`.
 
 ### tests
 
-If you added [Playwright](https://playwright.dev/) for browser testing when you set up your project, the tests will live in this directory.
+Se adicionaste [Playwright](https://playwright.dev/) para testes de navegador quando configuraste o teu projeto, os testes morarão neste diretório.
 
 ### package.json
 
-Your `package.json` file must include `@sveltejs/kit`, `svelte` and `vite` as `devDependencies`.
+O teu ficheiro `package.json` deve incluir `@sveltejs/kit`, `svelte` e `vite` como `devDependencies`.
 
-When you create a project with `npm create svelte@latest`, you'll also notice that `package.json` includes `"type": "module"`. This means that `.js` files are interpreted as native JavaScript modules with `import` and `export` keywords. Legacy CommonJS files need a `.cjs` file extension.
+Quando crias um projeto com `npm create svelte@latest`, também notarás que `package.json` inclui `"type": "module"`. Isto significa que os ficheiros `.js` são interpretados como módulos de JavaScript nativos com as palavras-chaves `import` e `export`. Os ficheiros de CommonJS legados precisam de um extensão `.cjs`.
 
 ### svelte.config.js
 
-This file contains your Svelte and SvelteKit [configuration](configuration).
+Este ficheiro contém a tua [configuração](configuration) da Svelte e SvelteKit.
 
 ### tsconfig.json
 
-This file (or `jsconfig.json`, if you prefer type-checked `.js` files over `.ts` files) configures TypeScript, if you added typechecking during `npm create svelte@latest`. Since SvelteKit relies on certain configuration being set a specific way, it generates its own `.svelte-kit/tsconfig.json` file which your own config `extends`.
+Este ficheiro (ou `jsconfig.json`, se preferes ficheiros `.js` de tipos verificados sobre os ficheiros `.ts`) configura a TypeScript, se adicionaste a verificação de tipo durante `npm create svelte@latest`. Já que a SvelteKit depende que certa configuração seja definida de uma maneira específica, gera o seu próprio ficheiro `.svelte-kit/tsconfig.json` que a tua própria configuração `extends`.
 
 ### vite.config.js
 
-A SvelteKit project is really just a [Vite](https://vitejs.dev) project that uses the [`@sveltejs/kit/vite`](modules#sveltejs-kit-vite) plugin, along with any other [Vite configuration](https://vitejs.dev/config/).
+Um projeto de SvelteKit é realmente apenas um projeto de [Vite](https://pt.vitejs.dev) que usa a extensão [`@sveltejs/kit/vite`](modules#sveltejs-kit-vite), juntamente com qualquer outra [configuração de Vite](https://pt.vitejs.dev/config/).
 
-## Other files
+## Outros ficheiros
 
 ### .svelte-kit
 
-As you develop and build your project, SvelteKit will generate files in a `.svelte-kit` directory (configurable as [`outDir`](configuration#outdir)). You can ignore its contents, and delete them at any time (they will be regenerated when you next `dev` or `build`).
+Conforme programares e construires o teu projeto, a SvelteKit gerará ficheiros num diretório `.svelte-kit` (configurável como [`outDir`](configuration#outdir)). Tu podes ignorar o seu conteúdo, e eliminá-los a qualquer momento (serão gerados novamente quando executares o próximo comando `dev` ou `build`).
