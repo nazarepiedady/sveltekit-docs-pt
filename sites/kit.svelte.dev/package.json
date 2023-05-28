@@ -5,8 +5,7 @@
 	"scripts": {
 		"update": "node scripts/check-doc-links.js && node scripts/types",
 		"dev": "vite dev",
-		"build-old": "npm run update && vite build",
-		"build": "vite build",
+		"build": "npm run update && vite build",
 		"prebuild": "test \"$CI\" = true && npx pnpm install --store=node_modules/.pnpm-store || echo skipping pnpm install",
 		"preview": "vite preview",
 		"test": "uvu src \"(spec\\.js|test[\\\\/]index\\.js)\""
