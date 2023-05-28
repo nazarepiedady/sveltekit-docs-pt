@@ -1,20 +1,20 @@
 ---
-title: Web standards
+title: Padrões da Web
 ---
 
-Throughout this documentation, you'll see references to the standard [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) that SvelteKit builds on top of. Rather than reinventing the wheel, we _use the platform_, which means your existing web development skills are applicable to SvelteKit. Conversely, time spent learning SvelteKit will help you be a better web developer elsewhere.
+Ao longo desta documentação, verás referências as [APIs da Web](https://developer.mozilla.org/en-US/docs/Web/API) padrão sobre as quais a SvelteKit constrói. No lugar de reinventar a roda, _usamos a plataforma_, o que significa que as tuas habilidades de desenvolvimento da web existente são aplicáveis a SvelteKit. Inversamente, noutro lado o tempo gasto aprendendo a SvelteKit ajudar-te-á a ser um programador da web melhor.
 
-These APIs are available in all modern browsers and in many non-browser environments like Cloudflare Workers, Deno and Vercel Edge Functions. During development, and in [adapters](adapters) for Node-based environments (including AWS Lambda), they're made available via polyfills where necessary (for now, that is — Node is rapidly adding support for more web standards).
+Estas APIs estão disponíveis em todos os navegadores modernos e em muitos ambientes sem navegador como Operários da Cloudflare, Deno e Funções de Borda da Vercel. Durante o desenvolvimento, e nos [adaptadores](adapters) para ambientes baseados na Node (incluindo AWS Lambda), são disponibilizadas através de supridores de recursos onde necessário (por agora, isto é — a Node está rapidamente a adicionar suporte para mais padrões da web).
 
-In particular, you'll get comfortable with the following:
+Em particular, estarás confortável com os seguintes:
 
-## Fetch APIs
+## APIs de Requisição
 
-SvelteKit uses [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) for getting data from the network. It's available in [hooks](hooks) and [server routes](routing#server) as well as in the browser.
+A SvelteKit usa a [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) para receber dados a partir da rede. Está disponível nos [gatilhos](hooks) e bem como nas [rotas do servidor](routing#server) no navegador.
 
-> A special version of `fetch` is available in [`load`](load) functions, [server hooks](hooks#server-hooks) and [API routes](routing#server) for invoking endpoints directly during server-side rendering, without making an HTTP call, while preserving credentials. (To make credentialled fetches in server-side code outside `load`, you must explicitly pass `cookie` and/or `authorization` headers.) It also allows you to make relative requests, whereas server-side `fetch` normally requires a fully qualified URL.
+> Uma versão especial de `fetch` está disponível nas funções de [`load`](load), [gatilhos do servidor](hooks#server-hooks) e [rotas da API](routing#server) para invocar destinos diretamente durante a interpretação no lado do servidor, sem fazer uma chamada de HTTP, enquanto preserva as credenciais. (Para fazer requisições credenciadas no código do lado do servidor fora de `load`, deves passar explicitamente cabeçalhos de `cookie` e ou `authorization`). Isto também permite-te fazer requisições relativas, enquanto que a `fetch` do lado do servidor normalmente exige uma URL qualificada completamente.
 
-Besides `fetch` itself, the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) includes the following interfaces:
+Além da própria `fetch`, a [API de Requisição](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) inclui as seguintes interfaces:
 
 ### Request
 
