@@ -8,7 +8,7 @@ Estas APIs estão disponíveis em todos os navegadores modernos e em muitos ambi
 
 Em particular, estarás confortável com os seguintes:
 
-## APIs de Requisição
+## APIs de Fetch
 
 A SvelteKit usa a [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch) para receber dados a partir da rede. Está disponível nos [gatilhos](hooks) e bem como nas [rotas do servidor](routing#server) no navegador.
 
