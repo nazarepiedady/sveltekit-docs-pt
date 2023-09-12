@@ -31,7 +31,7 @@ my-project/
 
 Também encontrarás ficheiros comuns como `.gitignore` e `.npmrc` (e `.prettierrc` e `.eslintrc.cjs`) e assim por diante, se escolheste aquelas opções quando executares `npm create svelte@latest`).
 
-## Project files
+## Ficheiros do projeto
 
 ### src
 
