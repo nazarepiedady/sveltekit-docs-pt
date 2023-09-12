@@ -18,15 +18,15 @@ Além da própria `fetch`, a [API de Requisição](https://developer.mozilla.org
 
 ### Request
 
-An instance of [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) is accessible in [hooks](hooks) and [server routes](routing#server) as `event.request`. It contains useful methods like `request.json()` and `request.formData()` for getting data that was posted to an endpoint.
+Uma instância de [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) é acessível nos [gatilhos](hooks) e [rotas do servidor](routing#server) como `event.request`. Contém métodos úteis como `request.json()` e `request.formData()` para obter os dados que foram publicados para um destino.
 
 ### Response
 
-An instance of [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) is returned from `await fetch(...)` and handlers in `+server.js` files. Fundamentally, a SvelteKit app is a machine for turning a `Request` into a `Response`.
+Uma instância de [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) é retornada a partir de `await fetch(...)` e manipuladores nos ficheiros `+server.js`. Fundamentalmente, uma aplicação de SvelteKit é uma máquina para tornar uma `Request` numa `Response`.
 
 ### Headers
 
-The [`Headers`](https://developer.mozilla.org/en-US/docs/Web/API/Headers) interface allows you to read incoming `request.headers` and set outgoing `response.headers`:
+A interface de [`Headers`](https://developer.mozilla.org/en-US/docs/Web/API/Headers) permite-nos ler `request.headers` de entrada e definir `response.headers` de saída:
 
 ```js
 // @errors: 2461
@@ -35,11 +35,11 @@ import { json } from '@sveltejs/kit';
 
 /** @type {import('./$types').RequestHandler} */
 export function GET(event) {
-	// log all headers
+	// registar todos os cabeçalhos
 	console.log(...event.request.headers);
 
 	return json({
-		// retrieve a specific header
+		// recuperar um cabeçalho específico
 		userAgent: event.request.headers.get('user-agent')
 	});
 }
@@ -47,7 +47,7 @@ export function GET(event) {
 
 ## FormData
 
-When dealing with HTML native form submissions you'll be working with [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) objects.
+Quando lidarmos com submissões de formulário nativas de HTML trabalharemos com os objetos de [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData).
 
 ```js
 // @errors: 2461
@@ -58,11 +58,11 @@ import { json } from '@sveltejs/kit';
 export async function POST(event) {
 	const body = await event.request.formData();
 
-	// log all fields
+	// registar todos os campos
 	console.log([...body]);
 
 	return json({
-		// get a specific field's value
+		// receber o valor dum campo específico
 		name: body.get('name') ?? 'world'
 	});
 }
@@ -70,15 +70,15 @@ export async function POST(event) {
 
 ## Stream APIs
 
-Most of the time, your endpoints will return complete data, as in the `userAgent` example above. Sometimes, you may need to return a response that's too large to fit in memory in one go, or is delivered in chunks, and for this the platform provides [streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) — [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream), [WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream) and [TransformStream](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream).
+Na maior parte do tempo, os nossos destinos retornarão dados completos, como no exemplo de `userAgent` acima. Algumas vezes, podemos precisar de retornar uma resposta que é grande demais para caber na memória em uma ida, ou é entregado em pedaços, e para isto a plataforma fornece os [fluxos](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) — [`ReadableStream`](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream), [`WritableStream`](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream) e [`TransformStream`](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream).
 
 ## URL APIs
 
-URLs are represented by the [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) interface, which includes useful properties like `origin` and `pathname` (and, in the browser, `hash`). This interface shows up in various places — `event.url` in [hooks](hooks) and [server routes](routing#server), [`$page.url`](modules#$app-stores) in [pages](routing#page), `from` and `to` in [`beforeNavigate` and `afterNavigate`](modules#$app-navigation) and so on.
+As URLs são representadas pela interface de [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL), que inclui propriedades úteis como `origin` e `pathname` (e, no navegador, `hash`). Esta interface aparece em vários lugares — `event.url` nos [gatilhos](hooks) e [rotas do servidor](routing#server), [`$page.url`](modules#$app-stores) nas [páginas](routing#page), `from` e `to` no [`beforeNavigate` e `afterNavigate`](modules#$app-navigation) e assim por diante.
 
 ### URLSearchParams
 
-Wherever you encounter a URL, you can access query parameters via `url.searchParams`, which is an instance of [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams):
+Onde quer que encontrarmos uma URL, podemos acessar os parâmetros de consulta através de `url.searchParams`, que é uma instância de [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams):
 
 ```js
 // @filename: ambient.d.ts
@@ -95,7 +95,7 @@ const foo = url.searchParams.get('foo');
 
 ## Web Crypto
 
-The [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) is made available via the `crypto` global. It's used internally for [Content Security Policy](configuration#csp) headers, but you can also use it for things like generating UUIDs:
+A [API de Criptografia da Web](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API) está disponível através da global `crypto`. É usada internamente para os cabeçalhos de [Política de Segurança de Conteúdo](configuration#csp), mas também podemos usá-la para coisas como gerar UUIDs:
 
 ```js
 const uuid = crypto.randomUUID();
