@@ -5,7 +5,10 @@ const config = {
 	kit: {
 		adapter: adapter({
 			runtime: 'edge'
-		})
+		}),
+		prerender: {
+			handleMissingId: 'ignore'
+		}
 	},
 
 	vitePlugin: {
