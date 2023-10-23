@@ -41,7 +41,7 @@ Your `webpack.config.js` or `rollup.config.js` should be replaced with a `svelte
 
 You will need to add an [adapter](adapters). `sapper build` is roughly equivalent to [adapter-node](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) while `sapper export` is roughly equivalent to [adapter-static](https://github.com/sveltejs/kit/tree/master/packages/adapter-static), though you might prefer to use an adapter designed for the platform you're deploying to.
 
-If you were using plugins for filetypes that are not automatically handled by [Vite](https://vitejs.dev), you will need to find Vite equivalents and add them to the [Vite config](project-structure#ficheiros-do-projeto-static).
+If you were using plugins for filetypes that are not automatically handled by [Vite](https://vitejs.dev), you will need to find Vite equivalents and add them to the [Vite config](project-structure#project-files-vite-config-js).
 
 ### src/client.js
 
@@ -49,7 +49,7 @@ This file has no equivalent in SvelteKit. Any custom logic (beyond `sapper.start
 
 ### src/server.js
 
-When using `adapter-node` the equivalent is a [custom server](/docs/adapter-node#custom-server). Otherwise, this file has no direct equivalent, since SvelteKit apps can run in serverless environments.
+When using `adapter-node` the equivalent is a [custom server](adapter-node#custom-server). Otherwise, this file has no direct equivalent, since SvelteKit apps can run in serverless environments.
 
 ### src/service-worker.js
 
@@ -81,7 +81,7 @@ Routes now are made up of the folder name exclusively to remove ambiguity, the f
 | routes/about/index.svelte | routes/about/+page.svelte |
 | routes/about.svelte       | routes/about/+page.svelte |
 
-Your custom error page component should be renamed from `_error.svelte` to `+error.svelte`. Any `_layout.svelte` files should likewise be renamed `+layout.svelte`. [Any other files are ignored](routing#outros-ficheiros).
+Your custom error page component should be renamed from `_error.svelte` to `+error.svelte`. Any `_layout.svelte` files should likewise be renamed `+layout.svelte`. [Any other files are ignored](routing#other-files).
 
 ### Imports
 
@@ -146,7 +146,7 @@ To support this environment-agnostic behavior, `fetch` is now available in the g
 
 ## Integrations
 
-See [the FAQ](/faq#integrations) for detailed information about integrations.
+See [integrations](./integrations) for detailed information about integrations.
 
 ### HTML minifier
 
