@@ -1,27 +1,31 @@
 <script>
-	import { Section, theme } from '@sveltejs/site-kit/components';
+	import { Section } from '@sveltejs/site-kit/components';
+	import { theme } from '@sveltejs/site-kit/stores';
+
+	import { base } from '$app/paths';
+	import plus from '$lib/icons/plus.svg';
+	import azure from './logos/azure.svg';
+	import cloudflare from './logos/cloudflare.svg';
+	import deno from './logos/deno.svg';
+	import firebase from './logos/firebase.svg';
 	import html5 from './logos/html5.svg';
+	import lambda from './logos/lambda.svg';
+	import netlify from './logos/netlify.svg';
 	import node from './logos/node.svg';
 	import vercel from './logos/vercel.svg';
-	import netlify from './logos/netlify.svg';
-	import cloudflare from './logos/cloudflare.svg';
-	import firebase from './logos/firebase.svg';
-	import deno from './logos/deno.svg';
-	import lambda from './logos/lambda.svg';
-	import azure from './logos/azure.svg';
-	import plus from '$lib/icons/plus.svg';
 </script>
 
 <Section --background="var(--background-1)">
 	<div class="grid" style="--columns: 3">
-		<h2>Implemente em qualquer parte</h2>
+		<h2>deploy anywhere</h2>
 		<div class="blurb">
 			<p>
-				Exporte os ficheiros de HTML estáticos. Execute o teu próprio servidor de Node. Implemente o código para o limite do mundo. Se uma plataforma executa JavaScript, ela executa SvelteKit — em alguns casos com <strong>configuração zero</strong>.
+				Export static HTML files. Run your own Node server. Deploy code to the edge of the world. If
+				a platform runs JavaScript, it runs SvelteKit — in some cases with <strong
+					>zero configuration</strong
+				>.
 			</p>
-			<p>
-				Queres tentar implementar noutro lugar? troque o teu adaptador com uma única linha de código.
-			</p>
+			<p>Want to try deploying somewhere else? Swap out your adapter with a single line of code.</p>
 		</div>
 	</div>
 
@@ -34,7 +38,7 @@
 				class="invert"
 			>
 				<img src={html5} alt="" />
-				<span>HTML <span class="large">Estático</span></span>
+				<span><span class="large">Static</span> HTML</span>
 			</a>
 			<a
 				target="_blank"
@@ -104,18 +108,18 @@
 			</a>
 			<a target="_blank" rel="noreferrer" href="https://kit.svelte.dev/docs/adapters">
 				<img src={plus} alt="" />
-				<span>Mais...</span>
+				<span>More...</span>
 			</a>
 		</div>
 
 		<div class="globe">
 			<img
-				src="/edge.svg?{$theme.current}"
+				src="{base}/edge.svg?{$theme.current}"
 				width="100%"
 				height="100%"
-				alt="Mapa do mundo gerado dinamicamente, centralizado na localização do utilizador."
+				alt="Dynamically rendered map of the world, centered on the user's location"
 			/>
-			<span> gerada no limite, só para ti </span>
+			<span> rendered on the edge, just for you </span>
 		</div>
 	</div>
 </Section>

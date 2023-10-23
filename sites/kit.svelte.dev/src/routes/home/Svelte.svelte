@@ -5,8 +5,8 @@
 
 <Section --background="var(--background-1)">
 	<p class="definition">
-		<em>/ˈsvɛlt/</em> <span class="adjective">adjetivo</span>
-		<span class="description">atrativamente fina, graciosa e elegante</span>
+		<em>/ˈsvɛlt/</em> <span class="adjective">adjective</span>
+		<span class="description">attractively thin, graceful and stylish</span>
 	</p>
 
 	<div class="grid" style="--columns: 3">
@@ -19,38 +19,42 @@
 					rel="noreferrer"
 					href="https://www.offerzen.com/community/svelte-origins-documentary"
 				>
-					Assista o documentário completo das Origens da Svelte
+					Watch the full Svelte Origins documentary
 				</a>
 			</p>
 		</div>
 
 		<div>
 			<p>
-				A SvelteKit é construída sobre a Svelte, uma abstração de interface de utilizador que usa um compilador para permitir-te escrever componentes concisos que fazem trabalho minimalista no navegador, usando linguagens que já conheces — HTML, CSS e JavaScript. <strong>É uma carta de amor para o desenvolvimento da web.</strong>
+				SvelteKit is built on Svelte, a UI framework that uses a compiler to let you write
+				breathtakingly concise components that do minimal work in the browser, using languages you
+				already know — HTML, CSS and JavaScript. <strong
+					>It's a love letter to web development.</strong
+				>
 			</p>
 
 			<p>
-				Mas não acredite apenas na nossa palavra. Programadores classificam constantemente a Svelte como a abstração que estão
+				But don't take our word for it. Developers consistently rank Svelte as the framework they're
 				<a
 					target="_blank"
 					rel="noreferrer"
 					href="https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-web-frameworks"
 				>
-					mais
+					most
 				</a>
 				<a
 					target="_blank"
 					rel="noreferrer"
 					href="https://tsh.io/state-of-frontend/#which-of-the-following-frameworks-would-you-like-to-learn-in-the-future"
 				>
-					entusiasmados
+					excited
 				</a>
 				<a
 					target="_blank"
 					rel="noreferrer"
 					href="https://2021.stateofjs.com/en-US/libraries/front-end-frameworks/"
 				>
-					em
+					about
 				</a>
 
 				<a
@@ -58,7 +62,7 @@
 					rel="noreferrer"
 					href="https://twitter.com/Rich_Harris/status/1589675637195042817"
 				>
-					usar</a
+					using</a
 				>.
 			</p>
 		</div>

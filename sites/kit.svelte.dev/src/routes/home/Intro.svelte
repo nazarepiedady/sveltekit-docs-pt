@@ -1,32 +1,34 @@
 <script>
-	import { Section } from '@sveltejs/site-kit/components';
+	import { Blurb } from '@sveltejs/site-kit/home';
 </script>
 
-<Section --background="var(--sk-back-1)">
-	<div class="grid" style="--columns: 3">
-		<div>
-			<h2>rápida</h2>
-			<p>
-				Alimentada pela <a target="_blank" rel="noreferrer" href="https://svelte.dev">Svelte</a> e
-				<a target="_blank" rel="noreferrer" href="https://pt.vitejs.dev">Vite</a>, a velocidade é assada em cada abertura: configuração rápida, desenvolvimento rápido, construções rápidas, carregamentos de página rápidos,navegação rápida. Mencionamos que é rápida?
-			</p>
-		</div>
-
-		<div>
-			<h2>divertida</h2>
-			<p>
-				Dias não mais desperdiçados compreendendo a configuração do empacotador, roteamento, SSR, CSR, TypeScript, definições de implementação e todas as outras coisas aborrecidas. Codifique com prazer.
-			</p>
-		</div>
-
-		<div>
-			<h2>flexível</h2>
-			<p>
-				SPA? MPA? SSR? SSG? verificado. A SvelteKit dá-te as ferramentas para serem bem-sucedido em seja o que estiveres a construir. E execute-a em onde quer que a JavaScript execute.
-			</p>
-		</div>
+<Blurb --background="var(--sk-back-1)">
+	<div slot="one">
+		<h2>fast</h2>
+		<p>
+			Powered by <a target="_blank" rel="noreferrer" href="https://svelte.dev">Svelte</a> and
+			<a target="_blank" rel="noreferrer" href="https://vitejs.dev">Vite</a>, speed is baked into
+			every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation. Did we
+			mention it's fast?
+		</p>
 	</div>
-</Section>
+
+	<div slot="two">
+		<h2>fun</h2>
+		<p>
+			No more wasted days figuring out bundler configuration, routing, SSR, CSP, TypeScript,
+			deployment settings and all the other boring stuff. Code with joy.
+		</p>
+	</div>
+
+	<div slot="three">
+		<h2>flexible</h2>
+		<p>
+			SPA? MPA? SSR? SSG? Check. SvelteKit gives you the tools to succeed whatever it is you're
+			building. And it runs wherever JavaScript does.
+		</p>
+	</div>
+</Blurb>
 
 <style>
 	p {

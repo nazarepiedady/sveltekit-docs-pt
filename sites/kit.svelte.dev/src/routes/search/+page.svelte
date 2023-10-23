@@ -1,18 +1,17 @@
 <script>
 	import { SearchResults } from '@sveltejs/site-kit/search';
 
-	/** @type {import('./$types').PageData} */
 	export let data;
 </script>
 
 <svelte:head>
-	<title>Pesquisa • SvelteKit</title>
+	<title>Search • SvelteKit</title>
 </svelte:head>
 
 <main>
-	<h1>Pesquisar</h1>
+	<h1>Search</h1>
 	<form>
-		<input name="q" value={data.query} placeholder="Pesquisar" spellcheck="false" />
+		<input name="q" value={data.query} type="search" aria-label="Search" placeholder="Search" spellcheck="false" />
 	</form>
 
 	<SearchResults results={data.results} query={data.query} />
