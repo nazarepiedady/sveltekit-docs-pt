@@ -19,20 +19,20 @@ Cada diretório de rota contem um ou mais _ficheiros de rota_, que podem ser ide
 Um componente `+page.svelte` define uma página da nossa aplicação. Por padrão, as páginas são interpretadas em ambos no servidor ([SSR](glossary#ssr)) para a requisição inicial e no navegador ([CSR](glossary#csr)) para a navegação subsequente:
 
 ```svelte
-/// file: src/routes/+page.svelte
+<!--- file: src/routes/+page.svelte --->
 <h1>Hello and welcome to my site!</h1>
 <a href="/about">About my site</a>
 ```
 
 ```svelte
-/// file: src/routes/about/+page.svelte
+<!--- file: src/routes/about/+page.svelte --->
 <h1>About this site</h1>
 <p>TODO...</p>
 <a href="/">Home</a>
 ```
 
 ```svelte
-/// file: src/routes/blog/[slug]/+page.svelte
+<!--- file: src/routes/blog/[slug]/+page.svelte --->
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -77,7 +77,7 @@ Nós podemos encontrar mais informação sobre estes nas [opções da página](p
 
 ### `+page.server.js`
 
-Se a nossa função `load` puder apenas executar no servidor — por exemplo, se precisa de requisitar dados a partir duma base de dados ou precisamos acessar [variáveis de ambiente](modules#$env-static-private) privadas como chaves da API — então podemos renomear `+page.js` para `+page.server.js` e mudar o tipo de `PageLoad` para `PageServerLoad`:
+Se a nossa função `load` puder apenas executar no servidor — por exemplo, se precisa de requisitar dados a partir duma base de dados ou precisamos acessar [variáveis de ambiente](modules#$env-static-private) privadas como chaves de API — então podemos renomear `+page.js` para `+page.server.js` e mudar o tipo de `PageLoad` para `PageServerLoad`:
 
 ```js
 /// file: src/routes/blog/[slug]/+page.server.js
@@ -116,10 +116,10 @@ Um ficheiro `+page.server.js` também pode exportar _ações_. Se `load` permite
 
 ## `+error`
 
-Se um erro ocorrer durante a `load`, a SvelteKit desenhará uma página de erro padrão. Nós podemos personalizar esta página de erro numa base por rota adicionando um ficheiro `+error.svelte`:
+Se um erro ocorrer durante a `load`, a SvelteKit desenhará uma página de erro padrão. Nós podemos personalizar esta página de erro por rota, adicionando um ficheiro `+error.svelte`:
 
 ```svelte
-/// file: src/routes/blog/[slug]/+error.svelte
+<!--- file: src/routes/blog/[slug]/+error.svelte --->
 <script>
 	import { page } from '$app/stores';
 </script>
@@ -127,7 +127,7 @@ Se um erro ocorrer durante a `load`, a SvelteKit desenhará uma página de erro 
 <h1>{$page.status}: {$page.error.message}</h1>
 ```
 
-A SvelteKit 'percorrerá a árvore' à procura do limite do erro mais próximo — se o ficheiro acima não existisse, tentaria `src/routes/blog/+error.svelte` e depois `src/routes/+error.svelte` antes de desenhar a página de erro padrão. Se _isto_ falhar (se o erro foi lançado a partir da função `load` do `+layout` de raiz, que situa-se 'acima' do `+error` de raiz), a SvelteKit sairá e desenhará uma página de erro de retrocesso estático, que podemos personalizar criando um ficheiro `src/error.html`.
+A SvelteKit 'subirá a árvore' à procura do limite de erro mais próximo — se o ficheiro acima não existisse, tentaria `src/routes/blog/+error.svelte` e depois `src/routes/+error.svelte` antes de desenhar a página de erro padrão. Se _isto_ falhar (se o erro foi lançado a partir da função `load` do `+layout` de raiz, que situa-se 'acima' do `+error` de raiz), a SvelteKit sairá e desenhará uma página de erro de retrocesso estático, que podemos personalizar criando um ficheiro `src/error.html`.
 
 Se o erro ocorrer dentro duma função `load` no `+layout(.server).js`, o limite do erro mais próximo na árvore é um ficheiro `+error.svelte` _acima_ desta disposição (não próximo à mesma).
 
@@ -188,7 +188,7 @@ As disposições podem ser _encaixadas_. Suponhamos que não apenas temos uma ú
 Nós podemos criar uma disposição que apenas aplica-se às páginas abaixo de `/settings` (enquanto herdamos a disposição de raiz com a navegação de alto nível):
 
 ```svelte
-/// file: src/routes/settings/+layout.svelte
+<!--- file: src/routes/settings/+layout.svelte --->
 <script>
 	/** @type {import('./$types').LayoutData} */
 	export let data;
@@ -229,7 +229,7 @@ Se um `+layout.js` exportar [opções de página](page-options) — `prerender`,
 Os dados retornados a partir duma função `load` da disposição também está disponível em todas as páginas do seu filho:
 
 ```svelte
-/// file: src/routes/settings/profile/+page.svelte
+<!--- file: src/routes/settings/profile/+page.svelte --->
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -277,7 +277,7 @@ O primeiro argumento para `Response` pode ser um [`ReadableStream`](https://deve
 
 Nós podemos usar os métodos [`error`](modules#sveltejs-kit-error), [`redirect`](modules#sveltejs-kit-redirect) e [`json`](modules#sveltejs-kit-json) do `@sveltejs/kit` por conveniência (mas não temos de o fazer).
 
-Se um erro for lançado (ou `throw erro(...)` ou um erro inesperado), a resposta será uma representação de JSON do erro ou uma página de erro de retrocesso — que pode ser personalizada através de `src/error.html` — dependendo do cabeçalho `Accept`. O componente [`+error.svelte`](#error) _não_ será desenhado neste caso. Nós podemos ler mais sobre a manipulação de erro [nesta ligação](erros).
+Se um erro for lançado (ou `throw erro(...)` ou um erro inesperado), a resposta será uma representação de JSON do erro ou uma página de erro de retrocesso — que pode ser personalizada através de `src/error.html` — dependendo do cabeçalho `Accept`. O componente [`+error.svelte`](#error) _não_ será desenhado neste caso. Nós podemos ler mais sobre a manipulação de erro [nesta ligação](errors).
 
 > Quando críamos um manipulador de `OPTIONS`, nota que a Vite injetará os cabeçalhos `Access-Control-Allow-Origin` e `Access-Control-Allow-Methods` — estes não estarão presentes em produção a menos que os adicionemos.
 
@@ -286,7 +286,7 @@ Se um erro for lançado (ou `throw erro(...)` ou um erro inesperado), a resposta
 Com a exportação dos manipuladores de `POST`/`PUT`/`PATCH`/`DELETE`/`OPTIONS`, os ficheiros `+server.js` podem ser usados para criar uma API completa:
 
 ```svelte
-/// file: src/routes/add/+page.svelte
+<!--- file: src/routes/add/+page.svelte --->
 <script>
 	let a = 0;
 	let b = 0;
@@ -325,7 +325,32 @@ export async function POST({ request }) {
 
 > Em geral, as [ações de formulário](form-actions) são uma maneira melhor de submeter os dados a partir dos navegadores ao servidor.
 
-### Navegação do Conteúdo
+> Se um manipulador de `GET` for exportado, uma requisição de `HEAD` retornará o `content-length` do corpo da resposta do manipulador de `GET`.
+
+### Manipulador de Método de Retrocesso
+
+Exportar o manipulador de `fallback` corresponderá à quaisquer métodos de requisição não manipulada, incluindo métodos como `MOVE` que não tem nenhuma exportação dedicada a partir de `+server.js`:
+
+```js
+// @errors: 7031
+/// file: src/routes/api/add/+server.js
+import { json, text } from '@sveltejs/kit';
+
+export async function POST({ request }) {
+	const { a, b } = await request.json();
+	return json(a + b);
+}
+
+// Este manipulador responderá aos PUT, PATCH, DELETE, etc.
+/** @type {import('./$types').RequestHandler} */
+export async function fallback({ request }) {
+	return text(`I caught your ${request.method} request!`);
+}
+```
+
+> Para requisições de `HEAD`, o manipulador de `GET` tem precedência sobre o manipulador de `fallback`.
+
+### Negociação de Conteúdo
 
 Os ficheiros `+server.js` podem ser colocados no mesmo diretório que os ficheiros `+page`, permitindo a mesma rota ser ou uma página ou um destino de API. Para determinar quais, a SvelteKit aplica as seguintes regras:
 
@@ -339,7 +364,7 @@ Em todos os exemplos acima, estávamos a importar os tipos a partir dum ficheiro
 Por exemplo, anotar `export let data` com `PageData` (ou `LayoutData`, para um ficheiro `+layout.svelte`) diz a TypeScript que o tipo do `data` é tudo aquilo que foi retornado a partir da `load`:
 
 ```svelte
-/// file: src/routes/blog/[slug]/+page.svelte
+<!--- file: src/routes/blog/[slug]/+page.svelte --->
 <script>
 	/** @type {import('./$types').PageData} */
 	export let data;
