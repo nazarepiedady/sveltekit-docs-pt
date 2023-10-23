@@ -6,16 +6,11 @@ const config = {
 		adapter: adapter({
 			runtime: 'edge'
 		}),
+		paths: {
+			relative: true
+		},
 		prerender: {
 			handleMissingId: 'ignore'
-		}
-	},
-
-	vitePlugin: {
-		experimental: {
-			inspector: {
-				holdMode: true
-			}
 		}
 	}
 };
