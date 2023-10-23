@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { lookup } from 'mrmime';
 import sirv from 'sirv';
 import { loadEnv, normalizePath } from 'vite';
 import { getRequest, setResponse } from '../../../exports/node/index.js';
@@ -35,6 +36,10 @@ export async function preview(vite, vite_config, svelte_config) {
 	const etag = `"${Date.now()}"`;
 
 	const dir = join(svelte_config.kit.outDir, 'output/server');
+
+	if (!fs.existsSync(dir)) {
+		throw new Error(`Server files not found at ${dir}, did you run \`build\` first?`);
+	}
 
 	/** @type {import('types').ServerInternalModule} */
 	const { set_assets } = await import(pathToFileURL(join(dir, 'internal.js')).href);
@@ -137,7 +142,7 @@ export async function preview(vite, vite_config, svelte_config) {
 
 				if (prerendered) {
 					res.writeHead(200, {
-						'content-type': 'text/html',
+						'content-type': lookup(pathname) || 'text/html',
 						etag
 					});
 
