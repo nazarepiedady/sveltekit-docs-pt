@@ -4,28 +4,23 @@
 
 <Blurb --background="var(--sk-back-1)">
 	<div slot="one">
-		<h2>fast</h2>
+		<h2>rápida</h2>
 		<p>
-			Powered by <a target="_blank" rel="noreferrer" href="https://svelte.dev">Svelte</a> and
-			<a target="_blank" rel="noreferrer" href="https://vitejs.dev">Vite</a>, speed is baked into
-			every crevice: fast setup, fast dev, fast builds, fast page loads, fast navigation. Did we
-			mention it's fast?
+			Alimentada pela <a target="_blank" rel="noreferrer" href="https://svelte-docs-pt.vercel.app">Svelte</a> e <a target="_blank" rel="noreferrer" href="https://pt.vitejs.dev">Vite</a>, a velocidade está presente em todos os pormenores: configuração rápida, desenvolvimento rápido, construções rápidas, carregamento rápido de páginas, e navegação rápida. Já mencionámos que é rápida?
 		</p>
 	</div>
 
 	<div slot="two">
-		<h2>fun</h2>
+		<h2>divertida</h2>
 		<p>
-			No more wasted days figuring out bundler configuration, routing, SSR, CSP, TypeScript,
-			deployment settings and all the other boring stuff. Code with joy.
+			Acabaram-se os dias perdidos a tentar entender a configuração do empacotador, roteamento, interpretação do lado do servidor, política de segurança de conteúdo, TypeScript, definições de implementação da produção e todas as outras coisas aborrecidas. Codifique com alergia.
 		</p>
 	</div>
 
 	<div slot="three">
-		<h2>flexible</h2>
+		<h2>flexível</h2>
 		<p>
-			SPA? MPA? SSR? SSG? Check. SvelteKit gives you the tools to succeed whatever it is you're
-			building. And it runs wherever JavaScript does.
+			SPA? MPA? SSR? SSG? Confirmado. A SvelteKit dá-nos as ferramentas para sermos bem-sucedidos em tudo aquilo que estivermos a construir. E executa onde quer que a JavaScript executa.
 		</p>
 	</div>
 </Blurb>
