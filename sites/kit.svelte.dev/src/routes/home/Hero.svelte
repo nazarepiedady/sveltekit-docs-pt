@@ -12,12 +12,12 @@
 				<Logotype />
 			</div>
 
-			<div class="tagline">web development, streamlined</div>
-			<a href="{base}/docs/introduction" class="cta"> read the docs </a>
+			<div class="tagline">desenvolvimento da web, aperfeiçoado</div>
+			<a href="{base}/docs/introduction" class="cta"> ler a documentação </a>
 		</div>
 
 		<div class="hero-image">
-			<Image src={background} alt="SvelteKit illustration" />
+			<Image src={background} alt="Ilustração da SvelteKit" />
 		</div>
 	</div>
 </section>
