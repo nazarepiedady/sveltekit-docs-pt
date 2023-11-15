@@ -21,19 +21,19 @@
 </script>
 
 <svelte:head>
-	<title>SvelteKit • Web development, streamlined</title>
+	<title>SvelteKit • desenvolvimento da Web, aperfeiçoado</title>
 
 	<meta name="twitter:title" content="SvelteKit" />
-	<meta name="twitter:description" content="Web development, streamlined" />
-	<meta name="description" content="SvelteKit is the official Svelte application framework" />
+	<meta name="twitter:description" content="desenvolvimento da Web, aperfeiçoado" />
+	<meta name="description" content="SvelteKit é a abstração de aplicação oficial da Svelte" />
 
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="SvelteKit • Web development, streamlined" />
+	<meta property="og:title" content="SvelteKit • desenvolvimento da Web, aperfeiçoado" />
 	<meta
 		property="og:description"
-		content="SvelteKit is the official Svelte application framework"
+		content="SvelteKit é a abstração de aplicação oficial da Svelte"
 	/>
-	<meta property="og:url" content="https://kit.svelte.dev/" />
+	<meta property="og:url" content="https://sveltekit-docs-pt.vercel.app/" />
 	<meta
 		property="og:image"
 		content="https://raw.githubusercontent.com/sveltejs/branding/master/svelte-logo.svg"
@@ -59,16 +59,16 @@
 		links={{
 			resources: [
 				{
-					title: 'documentation',
+					title: 'documentação',
 					href: '/docs'
 				},
 				{
 					title: 'tutorial',
-					href: 'https://learn.svelte.dev/tutorial/introducing-sveltekit'
+					href: 'https://learn-svelte-pt.vercel.app/tutorial/introducing-sveltekit'
 				},
 				{
-					title: 'blog',
-					href: 'https://svelte.dev/blog'
+					title: 'blogue',
+					href: 'https://svelte-docs-pt.vercel.app/blog'
 				}
 			],
 			connect: [
