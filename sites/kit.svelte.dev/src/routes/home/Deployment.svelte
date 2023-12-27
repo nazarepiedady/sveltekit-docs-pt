@@ -17,15 +17,14 @@
 
 <Section --background="var(--background-1)">
 	<div class="grid" style="--columns: 3">
-		<h2>deploy anywhere</h2>
+		<h2>implemente em qualquer lugar</h2>
 		<div class="blurb">
 			<p>
-				Export static HTML files. Run your own Node server. Deploy code to the edge of the world. If
-				a platform runs JavaScript, it runs SvelteKit — in some cases with <strong
-					>zero configuration</strong
-				>.
+				Exporta os ficheiros de HTML estáticos. Execute o teu próprio servidor de Node. Implemente o código no limite do mundo. Se uma plataforma executa JavaScript, esta executa SvelteKit — em alguns casos com <strong>zero configuração</strong>.
 			</p>
-			<p>Want to try deploying somewhere else? Swap out your adapter with a single line of code.</p>
+			<p>
+				Queres experimentar implementar em outro lugar? Troque o teu adaptador com uma única linha de código.
+			</p>
 		</div>
 	</div>
 
@@ -38,7 +37,7 @@
 				class="invert"
 			>
 				<img src={html5} alt="" />
-				<span><span class="large">Static</span> HTML</span>
+				<span>HTML <span class="large">Estático</span></span>
 			</a>
 			<a
 				target="_blank"
@@ -106,9 +105,9 @@
 				<img src={azure} alt="" />
 				<span>Azure</span>
 			</a>
-			<a target="_blank" rel="noreferrer" href="https://kit.svelte.dev/docs/adapters">
+			<a target="_blank" rel="noreferrer" href="https://sveltekit-docs-pt.vercel.app/docs/adapters">
 				<img src={plus} alt="" />
-				<span>More...</span>
+				<span>Mais...</span>
 			</a>
 		</div>
 
@@ -117,9 +116,9 @@
 				src="{base}/edge.svg?{$theme.current}"
 				width="100%"
 				height="100%"
-				alt="Dynamically rendered map of the world, centered on the user's location"
+				alt="Mapa do mundo desenhado dinamicamente, centralizado na localização do utilizador"
 			/>
-			<span> rendered on the edge, just for you </span>
+			<span> desenhado no limite, só para ti</span>
 		</div>
 	</div>
 </Section>
