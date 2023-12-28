@@ -63,14 +63,14 @@
 
 	<div class="controls">
 		<div>
-			<span class:faded={!prev}>previous</span>
+			<span class:faded={!prev}>anterior</span>
 			{#if prev}
 				<a href={prev.path}>{prev.title}</a>
 			{/if}
 		</div>
 
 		<div>
-			<span class:faded={!next}>next</span>
+			<span class:faded={!next}>próximo</span>
 			{#if next}
 				<a href={next.path}>{next.title}</a>
 			{/if}
