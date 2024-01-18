@@ -1,5 +1,4 @@
 <script>
-	import { Footer, TrySection } from '@sveltejs/site-kit/home';
 	import { onMount } from 'svelte';
 	import Deployment from './home/Deployment.svelte';
 	import Features from './home/Features.svelte';
@@ -8,6 +7,7 @@
 	import Showcase from './home/Showcase.svelte';
 	import Svelte from './home/Svelte.svelte';
 	import schema_url from './schema.json?url';
+	import { Try } from './_components/Try.svelte';
 
 	import './home/common.css';
 
@@ -49,50 +49,106 @@
 
 	<Hero />
 	<Intro />
-	<TrySection />
+	<Try />
 	<Svelte />
 	<Features />
 	<Deployment />
 	<Showcase />
 
-	<Footer
-		links={{
-			resources: [
-				{
-					title: 'documentação',
-					href: '/docs'
-				},
-				{
-					title: 'tutorial',
-					href: 'https://learn-svelte-pt.vercel.app/tutorial/introducing-sveltekit'
-				},
-				{
-					title: 'blogue',
-					href: 'https://svelte-docs-pt.vercel.app/blog'
-				}
-			],
-			connect: [
-				{
-					title: 'github',
-					href: 'https://github.com/sveltejs/kit'
-				},
-				{
-					title: 'opencollective',
-					href: 'https://opencollective.com/svelte'
-				},
-				{
-					title: 'discord',
-					href: 'https://svelte.dev/chat'
-				},
-				{
-					title: 'twitter',
-					href: 'https://twitter.com/sveltejs'
-				}
-			]
-		}}
-	>
-		<span slot="license">
-			A SvelteKit é software <a target="_blank" rel="noreferrer" href="https://github.com/sveltejs/kit">livre e de código-aberto</a> lançada sob a licença do MIT.
-		</span></Footer
-	>
+	<section>
+		<footer>
+			<div class="logo" />
+			<div class="links">
+				<h4>recursos</h4>
+				<a href="/docs">documentação</a>
+				<a href="https://learn-svelte-pt.vercel.app/tutorial/introducing-sveltekit">tutorial</a>
+				<a href="https://svelte-docs-pt.vercel.app/blog">blogue</a>
+			</div>
+			<div class="links">
+				<h4>conectar</h4>
+				<a href="https://github.com/sveltejs/svelte">github</a>
+				<a href="https://opencollective.com/svelte">open collective</a>
+				<a href="https://svelte.dev/chat">discord</a>
+				<a href="https://twitter.com/sveltejs">twitter</a>
+			</div>
+			<div class="copyright">
+				Direitos de Autor © 2023 <a href="https://github.com/sveltejs/svelte/graphs/contributors">colaboradores da Svelte</a>
+			</div>
+			<div class="open-source">
+				SvelteKit é um projeto <a href="https://github.com/sveltejs/kit">gratuito e de código-aberto</a> lançado sob a licença MIT
+			</div>
+		</footer>
+	</section>
 </div>
+
+<style>
+	h2 {
+		line-height: 1.05;
+	}
+
+	p {
+		font-size: var(--sk-text-m);
+	}
+
+	section {
+		background: var(--sk-back-4);
+		padding: 10rem 0;
+	}
+
+	footer {
+		max-width: 120rem;
+		padding: 0 var(--sk-page-padding-side);
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		grid-row-gap: 6rem;
+	}
+
+	footer .logo {
+		display: none;
+		background: url('@sveltejs/site-kit/branding/svelte-logo.svg');
+		background-repeat: no-repeat;
+		background-size: 8rem;
+		filter: grayscale(100%) opacity(84%);
+	}
+
+	footer h4 {
+		font-size: var(--sk-text-m);
+		padding-bottom: 1rem;
+	}
+
+	.links a {
+		color: var(--sk-text-2);
+		font-size: var(--sk-text-s);
+		display: block;
+		line-height: 1.8;
+	}
+
+	.open-source {
+		display: none;
+		grid-column: span 2;
+	}
+
+	.copyright {
+		grid-column: span 2;
+	}
+
+	@media (min-width: 500px) {
+		footer {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		footer .logo {
+			display: block;
+		}
+
+		.copyright {
+			grid-column: span 1;
+		}
+
+		.open-source {
+			display: block;
+		}
+	}
+</style>
