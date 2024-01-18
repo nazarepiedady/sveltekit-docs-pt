@@ -1,6 +1,6 @@
 <script>
 	import { Section } from '@sveltejs/site-kit/components';
-	import { TryTerminal } from '@sveltejs/site-kit/components';
+	import { TryTerminal } from '@sveltejs/site-kit/home';
 </script>
 
 <div class="try-container">
