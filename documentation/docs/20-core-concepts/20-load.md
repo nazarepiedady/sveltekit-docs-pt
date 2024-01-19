@@ -2,11 +2,11 @@
 title: Carregando Dados
 ---
 
-Before a [`+page.svelte`](routing#page-page-svelte) component (and its containing [`+layout.svelte`](routing#layout-layout-svelte) components) can be rendered, we often need to get some data. This is done by defining `load` functions.
+Antes dum componente [`+page.svelte`](routing#page-page-svelte) (e os seus componentes que contém [`+layout.svelte`](routing#layout-layout-svelte)) poderem ser interpretados, frequentemente precisamos receber alguns dados. Isto é feito definindo as funções `load`.
 
-## Page data
+## Dados da Página
 
-A `+page.svelte` file can have a sibling `+page.js` that exports a `load` function, the return value of which is available to the page via the `data` prop:
+Um ficheiro `+page.svelte` pode ter um `+page.js` irmão que exporta uma função `load`, o valor de retorno do que está disponível a uma página através da propriedade `data`:
 
 ```js
 /// file: src/routes/blog/[slug]/+page.js
@@ -32,11 +32,11 @@ export function load({ params }) {
 <div>{@html data.post.content}</div>
 ```
 
-Thanks to the generated `$types` module, we get full type safety.
+Graças ao módulo `$types` gerado, obtemos a segurança de tipo completa.
 
-A `load` function in a `+page.js` file runs both on the server and in the browser (unless combined with `export const ssr = false`, in which case it will [only run in the browser](https://kit.svelte.dev/docs/page-options#ssr)). If your `load` function should _always_ run on the server (because it uses private environment variables, for example, or accesses a database) then it would go in a `+page.server.js` instead.
+Uma função `load` num ficheiro `+page` executa ambos no servidor e no navegador (a menos que combinada com `export const ssr = false`, no qual caso esta [apenas executará no navegador](https://kit.svelte.dev/docs/page-options#ssr)). Se a nossa função `load` deveria _sempre_ executar no servidor (porque esta usa variáveis de ambiente privadas, por exemplo, ou acessa uma base de dados) então esta iria num `+page.server.js`.
 
-A more realistic version of your blog post's `load` function, that only runs on the server and pulls data from a database, might look like this:
+Uma versão mais realística da nossa função `load` da publicação de blogue, que apenas executa no servidor e puxa dados a partir duma base de dados, seria parecida com isto:
 
 ```js
 /// file: src/routes/blog/[slug]/+page.server.js
@@ -57,11 +57,11 @@ export async function load({ params }) {
 }
 ```
 
-Notice that the type changed from `PageLoad` to `PageServerLoad`, because server `load` functions can access additional arguments. To understand when to use `+page.js` and when to use `+page.server.js`, see [Universal vs server](load#universal-vs-server).
+Repara que o tipo mudou de `PageLoad` à `PageServerLoad`, porque as funções `load` do servidor podem acessar argumentos adicionais. Para entender quando usar `+page.js` e quando usar `+page.server.js`, consultar [Universal vs servidor](load#universal-vs-servidor).
 
-## Layout data
+## Dados da Disposição
 
-Your `+layout.svelte` files can also load data, via `+layout.js` or `+layout.server.js`.
+Nossos ficheiros `+layout.svelte` também podem carregar dados, através de `+layout.js` ou `+layout.server.js`:
 
 ```js
 /// file: src/routes/blog/[slug]/+layout.server.js
@@ -90,7 +90,7 @@ export async function load() {
 </script>
 
 <main>
-	<!-- +page.svelte is rendered in this <slot> -->
+	<!-- +page.svelte é interpretado neste <slot> -->
 	<slot />
 </main>
 
@@ -108,7 +108,7 @@ export async function load() {
 </aside>
 ```
 
-Data returned from layout `load` functions is available to child `+layout.svelte` components and the `+page.svelte` component as well as the layout that it 'belongs' to.
+Os dados retornados a partir das funções `load` da disposição estão disponíveis aos componentes filhos de `+layout.svelte` e o componente `+page.svelte` bem como a disposição que a qual esta 'pertence':
 
 ```diff
 /// file: src/routes/blog/[slug]/+page.svelte
@@ -118,8 +118,8 @@ Data returned from layout `load` functions is available to child `+layout.svelte
 	/** @type {import('./$types').PageData} */
 	export let data;
 
-+	// we can access `data.posts` because it's returned from
-+	// the parent layout `load` function
++	// nós podemos acessar `data.posts` porque é retornada
++	// a partir da função `load` da disposição pai
 +	$: index = data.posts.findIndex(post => post.slug === $page.params.slug);
 +	$: next = data.posts[index - 1];
 </script>
@@ -132,13 +132,13 @@ Data returned from layout `load` functions is available to child `+layout.svelte
 +{/if}
 ```
 
-> If multiple `load` functions return data with the same key, the last one 'wins' — the result of a layout `load` returning `{ a: 1, b: 2 }` and a page `load` returning `{ b: 3, c: 4 }` would be `{ a: 1, b: 3, c: 4 }`.
+> Se várias funções `load` retornarem dados com a mesma chave, o último 'vence' — o resultado duma `load` de disposição retornando `{ a: 1, b: 2 }` e uma `load` de página retornando `{ b: 3, c: 4 }` seria `{ a: 1, b: 3, c: 4 }`.
 
-## $page.data
+## `$page.data`
 
-The `+page.svelte` component, and each `+layout.svelte` component above it, has access to its own data plus all the data from its parents.
+O componente `+page.svelte`, e cada componente `+layout.svelte` acima deste, tem acesso ao seus próprios dados mais todos os dados do seus componentes pai.
 
-In some cases, we might need the opposite — a parent layout might need to access page data or data from a child layout. For example, the root layout might want to access a `title` property returned from a `load` function in `+page.js` or `+page.server.js`. This can be done with `$page.data`:
+Em alguns casos, podemos precisar do oposto — um disposição pai pode precisar acessar os dados da página ou dados a partir duma disposição filho. Por exemplo, a disposição de raiz pode querer acessar uma propriedade `title` retornada a partir duma função `load` no `+page.js` ou `+page.server`. Isto pode ser feito com `$page.data`:
 
 ```svelte
 <!--- file: src/routes/+layout.svelte --->
@@ -151,48 +151,48 @@ In some cases, we might need the opposite — a parent layout might need to acce
 </svelte:head>
 ```
 
-Type information for `$page.data` is provided by `App.PageData`.
+A informação de tipo para `$page.data` é fornecida pela `App.PageData`.
 
-## Universal vs server
+## Universal vs Servidor
 
-As we've seen, there are two types of `load` function:
+Conforme vimos, existe dois tipos de função `load`:
 
-* `+page.js` and `+layout.js` files export _universal_ `load` functions that run both on the server and in the browser
-* `+page.server.js` and `+layout.server.js` files export _server_ `load` functions that only run server-side
+* Os ficheiros `+page.js` e `+layout.js` exportam funções `load` _universais_ que executam ambas no servidor e no navegador
+* Os ficheiros `+page.server.js` e `+layout.server.js` exportam funções `load` do _servidor_ que apenas executam no lado do servidor
 
-Conceptually, they're the same thing, but there are some important differences to be aware of.
+Concetualmente, são a mesma coisa, mas existem algumas diferenças importantes a ter-se consciência.
 
-### When does which load function run?
+### Quando é Que a Função de Carregamento é Executada?
 
-Server `load` functions _always_ run on the server.
+As funções `load` do servidor _sempre_ executam sobre o servidor.
 
-By default, universal `load` functions run on the server during SSR when the user first visits your page. They will then run again during hydration, reusing any responses from [fetch requests](#making-fetch-requests). All subsequent invocations of universal `load` functions happen in the browser. You can customize the behavior through [page options](page-options). If you disable [server side rendering](page-options#ssr), you'll get an SPA and universal `load` functions _always_ run on the client.
+Por padrão, as funções `load` universais executam sobre o servidor durante a interpretação do lado do servidor quando o utilizador visita a nossa página pela primeira vez. Estas então executarão novamente durante a hidratação, reutilizando quaisquer respostas das [requisições de pesquisa](#making-fetch-requests). Todas as invocações subsequentes das funções `load` universais acontecem no navegador. Nós podemos personalizar o comportamento através das [opções da página](page-options). Se desativarmos a [interpretação do lado do servidor](page-options#ssr), obteremos uma aplicação de página única e funções `load` universais que _sempre_ executam sobre o cliente.
 
-A `load` function is invoked at runtime, unless you [prerender](page-options#prerender) the page — in that case, it's invoked at build time.
+Uma função `load` é invocada na execução, a menos que [pré-interpretemos](page-options#prerender) a página — neste caso, é invocada na construção.
 
-### Input
+### Entrada
 
-Both universal and server `load` functions have access to properties describing the request (`params`, `route` and `url`) and various functions (`fetch`, `setHeaders`, `parent` and `depends`). These are described in the following sections.
+Ambas funções `load` do servidor e universais têm acesso às propriedades descrevendo a requisição (`params`, `route`, e `url`) e várias funções (`fetch`, `setHeaders`, `parent` e `depends`). Estas são descritas nas seguintes seções.
 
-Server `load` functions are called with a `ServerLoadEvent`, which inherits `clientAddress`, `cookies`, `locals`, `platform` and `request` from `RequestEvent`.
+As funções `load` do servidor são chamadas com um `ServerLoadEvent`, que herda `clientAddress`, `cookies`, `locals`, `platform`, e `request` da `RequestEvent`.
 
-Universal `load` functions are called with a `LoadEvent`, which has a `data` property. If you have `load` functions in both `+page.js` and `+page.server.js` (or `+layout.js` and `+layout.server.js`), the return value of the server `load` function is the `data` property of the universal `load` function's argument.
+As funções `load` universais são chamadas com um `LoadEvent`, que tem uma propriedade `data`. Se tivermos funções `load` em ambos `+page.js` e `+page.server.js` (ou `+layout.js` e `+layout.server.js`), o valor de retorno da função `load` do servidor é a propriedade `data` do argumento da função `load` universal.
 
-### Output
+### Saída
 
-A universal `load` function can return an object containing any values, including things like custom classes and component constructors.
+Uma função `load` universal pode retornar um objeto que contém quaisquer valores, incluindo coisas como classes personalizadas e construtores de componente.
 
-A server `load` function must return data that can be serialized with [devalue](https://github.com/rich-harris/devalue) — anything that can be represented as JSON plus things like `BigInt`, `Date`, `Map`, `Set` and `RegExp`, or repeated/cyclical references — so that it can be transported over the network. Your data can include [promises](#streaming-with-promises), in which case it will be streamed to browsers.
+Um função `load` do servidor deve retornar dados que podem ser serializados com [`devalue`](https://github.com/rich-harris/devalue) — qualquer coisa que pode ser representada como JSON mais coisas como `BigInt`, `Date`, `Map`, `Set` e `RegExp`, ou referências repetidas ou cíclicas — para que possa ser transportado sobre a rede. Nossos dados podem incluir [promessas](#streaming-with-promises), casos em que serão transmitidos aos navegadores.
 
-### When to use which
+### Quando Usar Qual
 
-Server `load` functions are convenient when you need to access data directly from a database or filesystem, or need to use private environment variables.
+As funções `load` do servidor são convenientes quando precisamos acessar os dados diretamente a partir duma base de dados ou sistema de ficheiro, ou precisamos usar variáveis de ambiente privadas.
 
-Universal `load` functions are useful when you need to `fetch` data from an external API and don't need private credentials, since SvelteKit can get the data directly from the API rather than going via your server. They are also useful when you need to return something that can't be serialized, such as a Svelte component constructor.
+As funções `load` universais são úteis quando precisamos pedir dados duma API externa e não precisamos de credenciais privadas, uma vez que a SvelteKit pode obter os dados diretamente da API ao invés ir através do nosso servidor. Estas também são úteis quando precisamos retornar algo que não pode ser serializado, tais como um construtor de componente da Svelte.
 
-In rare cases, you might need to use both together — for example, you might need to return an instance of a custom class that was initialised with data from your server.
+Em raros casos, podemos precisar usar ambas em conjunto — por exemplo, podemos precisar retornar uma instância duma classe personalizada que era inicializada com os dados do nosso servidor.
 
-## Using URL data
+## Usando Dados da URL
 
 Often the `load` function depends on the URL in one way or another. For this, the `load` function provides you with `url`, `route` and `params`.
 
@@ -308,7 +308,7 @@ export async function load({ fetch, setHeaders }) {
 }
 ```
 
-Setting the same header multiple times (even in separate `load` functions) is an error — you can only set a given header once. You cannot add a `set-cookie` header with `setHeaders` — use `cookies.set(name, value, options)` instead.
+Setting the same header multiple times (even in separate `load` functions) is an error — you can only set a given header once. You cannot add a `set-cookie` header with `setHeaders` — use `cookies.set(name, value, options)` instead.
 
 ## Using parent data
 
