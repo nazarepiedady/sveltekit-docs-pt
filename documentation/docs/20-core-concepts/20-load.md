@@ -194,17 +194,17 @@ Em raros casos, podemos precisar usar ambas em conjunto — por exemplo, podemos
 
 ## Usando Dados da URL
 
-Often the `load` function depends on the URL in one way or another. For this, the `load` function provides you with `url`, `route` and `params`.
+Frequentemente a função `load` depende da URL duma maneira ou outra. Para isto, a função `load` fornece-nos com `url`, `route`, e `params`.
 
-### url
+### `url`
 
-An instance of [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL), containing properties like the `origin`, `hostname`, `pathname` and `searchParams` (which contains the parsed query string as a [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) object). `url.hash` cannot be accessed during `load`, since it is unavailable on the server.
+Uma instância do [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL), que contém propriedades como a `origin`, `hostname`, `pathname` e `searchParams` (que contém sequência de caracteres de consulta analisados sintaticamente como um objeto [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)). `url.hash` não pode ser acessado durante a `load`, uma vez que está indisponível no servidor.
 
-> In some environments this is derived from request headers during server-side rendering. If you're using [adapter-node](adapter-node), for example, you may need to configure the adapter in order for the URL to be correct.
+> Em alguns ambientes isto é derivado a partir dos cabeçalhos da requisição durante a interpretação do lado do servidor. Se estivermos usando a [`adapter-node`](adapter-node), por exemplo, podemos precisar configurar o adaptador para a URL ficar correta.
 
-### route
+### `route`
 
-Contains the name of the current route directory, relative to `src/routes`:
+Contém o nome do diretório da rota atual, relativo ao `src/routes`:
 
 ```js
 /// file: src/routes/a/[b]/[...c]/+page.js
@@ -214,11 +214,11 @@ export function load({ route }) {
 }
 ```
 
-### params
+### `params`
 
-`params` is derived from `url.pathname` and `route.id`.
+`params` é derivado a partir da `url.pathname` e `route.id`.
 
-Given a `route.id` of `/a/[b]/[...c]` and a `url.pathname` of `/a/x/y/z`, the `params` object would look like this:
+Dada uma `route.id` de `/a/[b]/[...c]` e uma `url.pathname` de `/a/x/y/z`, o objeto `params` parecer-se-ia com isto:
 
 ```json
 {
