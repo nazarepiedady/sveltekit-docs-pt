@@ -116,7 +116,7 @@
 			}
 		}}
 	>
-		<track kind="captions" srclang="en" src={vtt} default use:handle_cues />
+		<track kind="captions" srclang="pt" src={vtt} default use:handle_cues />
 	</video>
 
 	{#if d}
@@ -132,8 +132,8 @@
 				on:change={() => (has_used_controls = true)}
 			/>
 
-			<img style:display={captioned ? 'block' : 'none'} src={cc_on} alt="hide subtitles" />
-			<img style:display={captioned ? 'none' : 'block'} src={cc_off} alt="show subtitles" />
+			<img style:display={captioned ? 'block' : 'none'} src={cc_on} alt="esconder as legendas" />
+			<img style:display={captioned ? 'none' : 'block'} src={cc_off} alt="mostrar as legendas" />
 		</label>
 
 		<label class="mute" class:unused={!has_used_controls}>
@@ -144,8 +144,8 @@
 				on:change={() => (has_used_controls = true)}
 			/>
 
-			<img style:display={muted ? 'block' : 'none'} src={volume_off} alt="unmute" />
-			<img style:display={muted ? 'none' : 'block'} src={volume_high} alt="mute" />
+			<img style:display={muted ? 'block' : 'none'} src={volume_off} alt="tirar do silêncio" />
+			<img style:display={muted ? 'none' : 'block'} src={volume_high} alt="silenciar" />
 		</label>
 	</div>
 
@@ -161,18 +161,18 @@
 			}}
 		/>
 
-		<img style:display={paused ? 'block' : 'none'} src={play} alt="play" />
-		<img style:display={paused ? 'none' : 'block'} src={pause} alt="pause" />
+		<img style:display={paused ? 'block' : 'none'} src={play} alt="reproduzir" />
+		<img style:display={paused ? 'none' : 'block'} src={pause} alt="pausar" />
 	</label>
 </div>
 
 <style>
 	.video-player {
-		position: relative;
 		margin: 1em 0;
+		overflow: hidden;
+		position: relative;
 		border-radius: var(--sk-border-radius);
 		filter: drop-shadow(0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2));
-		overflow: hidden;
 	}
 
 	video {
@@ -186,8 +186,8 @@
 	}
 
 	video::cue {
-		font-size: 1.25rem;
 		line-height: 1.3;
+		font-size: 1.25rem;
 	}
 
 	@media (min-width: 600px) {
@@ -197,12 +197,12 @@
 	}
 
 	.progress-bar {
-		position: absolute;
 		left: 0;
 		bottom: 0;
 		height: 0.5rem;
-		background: var(--sk-theme-1);
+		position: absolute;
 		transition: height 0.2s;
+		background: var(--sk-theme-1);
 	}
 
 	label {
@@ -211,12 +211,12 @@
 	}
 
 	.top-controls {
-		position: absolute;
+		gap: 1rem;
 		top: 1rem;
 		right: 1rem;
 		display: flex;
+		position: absolute;
 		align-items: center;
-		gap: 1rem;
 	}
 
 	.play-pause {
@@ -254,8 +254,8 @@
 	}
 
 	.video-player input:focus-visible ~ img {
-		outline: 2px solid var(--sk-theme-1);
 		outline-offset: 2px;
+		outline: 2px solid var(--sk-theme-1);
 		border-radius: var(--sk-border-radius);
 	}
 </style>
