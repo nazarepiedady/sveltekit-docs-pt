@@ -7,7 +7,7 @@
 	import Showcase from './home/Showcase.svelte';
 	import Svelte from './home/Svelte.svelte';
 	import schema_url from './schema.json?url';
-	import { Try } from './_components/Try.svelte';
+	import TryTerminal from './_components/TryTerminal.svelte';
 
 	import './home/common.css';
 
@@ -21,14 +21,14 @@
 </script>
 
 <svelte:head>
-	<title>SvelteKit • desenvolvimento da Web, aperfeiçoado</title>
+	<title>SvelteKit • desenvolvimento da Web, simplificado</title>
 
 	<meta name="twitter:title" content="SvelteKit" />
-	<meta name="twitter:description" content="desenvolvimento da Web, aperfeiçoado" />
+	<meta name="twitter:description" content="desenvolvimento da Web, simplificado" />
 	<meta name="description" content="SvelteKit é a abstração de aplicação oficial da Svelte" />
 
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="SvelteKit • desenvolvimento da Web, aperfeiçoado" />
+	<meta property="og:title" content="SvelteKit • desenvolvimento da Web, simplificado" />
 	<meta
 		property="og:description"
 		content="SvelteKit é a abstração de aplicação oficial da Svelte"
@@ -49,7 +49,7 @@
 
 	<Hero />
 	<Intro />
-	<Try />
+	<TryTerminal />
 	<Svelte />
 	<Features />
 	<Deployment />
