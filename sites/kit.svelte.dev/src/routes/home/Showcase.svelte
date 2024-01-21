@@ -1,14 +1,13 @@
 <script>
-	import Image from '$lib/Image.svelte';
 	import { Section } from '@sveltejs/site-kit/components';
-	import pudding from './showcase/pudding.png';
-	import pocketbase from './showcase/pocketbase.png';
-	import pronauns from './showcase/pronauns.png';
-	import pausly from './showcase/pausly.png';
-	import asmeditor from './showcase/asmeditor.png';
-	import monogram from './showcase/monogram.png';
-	import raster from './showcase/raster.png';
-	import tradingstrategy from './showcase/tradingstrategy.png';
+	import pudding from './showcase/pudding.png?enhanced';
+	import pocketbase from './showcase/pocketbase.png?enhanced';
+	import pronauns from './showcase/pronauns.png?enhanced';
+	import pausly from './showcase/pausly.png?enhanced';
+	import asmeditor from './showcase/asmeditor.png?enhanced';
+	import monogram from './showcase/monogram.png?enhanced';
+	import raster from './showcase/raster.png?enhanced';
+	import tradingstrategy from './showcase/tradingstrategy.png?enhanced';
 
 	const showcase = [
 		{ url: 'pudding.cool', image: pudding },
@@ -28,7 +27,7 @@
 	<div class="showcase">
 		{#each showcase as { url, image }}
 			<a href="https://{url}" target="_blank" rel="noreferrer">
-				<Image src={image} alt="" style="width:100%; height:100%; object-fit:cover" />
+				<enhanced:img src={image} alt="" style="width:100%;height:100%;object-fit:cover;" />
 				<span>{url}</span>
 			</a>
 		{/each}
@@ -38,49 +37,46 @@
 <style>
 	h2 {
 		color: white;
+		text-align: center;
 		margin-bottom: 1em;
 		text-transform: uppercase;
 		font-size: var(--sk-text-s);
-		text-align: center;
 	}
 
 	.showcase {
-		display: grid;
 		gap: 2rem;
+		display: grid;
 	}
 
 	a {
-		overflow: hidden;
-		color: var(--sk-text-1);
 		display: flex;
-		border-radius: var(--sk-border-radius);
 		overflow: hidden;
 		aspect-ratio: 16 / 9;
+		color: var(--sk-text-1);
+		border-radius: var(--sk-border-radius);
 	}
 
 	a :global(img) {
 		width: 100%;
 		height: 100%;
-		margin: 0 0 0.5em 0;
-		object-fit: cover;
 		display: block;
+		object-fit: cover;
+		margin: 0 0 0.5em 0;
 		transition: transform 0.2s;
 	}
 
 	span {
-		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		color: white;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		top: 0;
-		background: rgba(0, 0, 0, 0.25);
-		color: white;
-		backdrop-filter: blur(3px);
-		opacity: 0;
 		transition: opacity 0.2s;
+		backdrop-filter: blur(3px);
 		font-size: var(--sk-text-s);
 		filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
 	}
