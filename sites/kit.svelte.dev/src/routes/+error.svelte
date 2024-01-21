@@ -12,7 +12,7 @@
 
 <div class="container">
 	{#if $page.status === 404}
-		<h1>Not found!</h1>
+		<h1>Não encontrada!</h1>
 	{:else if online}
 		<h1>Yikes!</h1>
 
@@ -20,17 +20,15 @@
 			<p class="error">{$page.status}: {$page.error.message}</p>
 		{/if}
 
-		<p>Please try reloading the page.</p>
+		<p>Tente recarregar a página.</p>
 
 		<p>
-			If the error persists, please drop by <a href="https://svelte.dev/chat">Discord chatroom</a>
-			and let us know, or raise an issue on
-			<a href="https://github.com/sveltejs/svelte">GitHub</a>. Thanks!
+			Se o erro persistir, visite a <a href="https://svelte.dev/chat">sala de conversas da Discord</a> e informe-nos, ou levante um problema na <a href="https://github.com/sveltejs/svelte">GitHub</a>. Obrigado!
 		</p>
 	{:else}
-		<h1>It looks like you're offline</h1>
+		<h1>Parece que estás desconectado da Internet.</h1>
 
-		<p>Reload the page once you've found the internet.</p>
+		<p>Recarregue a página quando estiveres conectado a Internet.</p>
 	{/if}
 </div>
 
@@ -45,9 +43,9 @@
 	}
 
 	h1 {
+		margin: 0;
 		font-size: 2.8em;
 		font-weight: 300;
-		margin: 0;
 		margin-bottom: 0.5em;
 	}
 
@@ -56,10 +54,10 @@
 	}
 
 	.error {
-		background-color: #da106e;
 		color: white;
 		padding: 12px 16px;
-		font: 600 16px/1.7 var(--sk-font);
 		border-radius: 2px;
+		background-color: #da106e;
+		font: 600 16px/1.7 var(--sk-font);
 	}
 </style>
