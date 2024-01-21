@@ -118,19 +118,19 @@
 				height="100%"
 				alt="Mapa do mundo desenhado dinamicamente, centralizado na localização do utilizador"
 			/>
-			<span> desenhado no limite, só para ti</span>
+			<span> desenhada no limite, só para nós</span>
 		</div>
 	</div>
 </Section>
 
 <style>
 	.globe {
+		width: 100%;
+		aspect-ratio: 1;
 		--max-size: 40rem;
 		position: relative;
-		width: 100%;
-		max-height: var(--max-size);
 		text-align: center;
-		aspect-ratio: 1;
+		max-height: var(--max-size);
 	}
 
 	.globe img {
@@ -139,38 +139,38 @@
 	}
 
 	.globe span {
-		position: absolute;
-		bottom: -4rem;
 		left: 0;
 		width: 100%;
+		bottom: -4rem;
+		position: absolute;
 		color: var(--sk-text-3);
 		font-size: var(--sk-text-xs);
 	}
 
 	.globe span::before {
-		--size: 2rem;
+		top: -3rem;
 		content: '';
+		--size: 2rem;
 		position: absolute;
 		width: var(--size);
 		height: var(--size);
-		background: url($lib/icons/up-small.svg) no-repeat center;
 		left: calc(50% - 0.5 * var(--size));
-		top: -3rem;
+		background: url($lib/icons/up-small.svg) no-repeat center;
 	}
 
 	.platforms {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
 		gap: 1rem;
+		display: grid;
 		align-items: center;
+		grid-template-columns: repeat(5, 1fr);
 	}
 
 	.platforms a {
-		display: flex;
-		flex-direction: column;
 		gap: 1rem;
-		align-items: center;
+		display: flex;
 		color: inherit;
+		align-items: center;
+		flex-direction: column;
 	}
 
 	.platforms.left {
@@ -179,26 +179,26 @@
 	}
 
 	.platforms a span {
-		font-size: var(--sk-text-xs);
-		color: var(--sk-text-3);
 		text-align: center;
+		color: var(--sk-text-3);
+		font-size: var(--sk-text-xs);
 	}
 
 	.platforms img {
-		--size: 4rem;
 		--invert: 0;
+		--size: 4rem;
 		--invert-hover: 0;
 		width: var(--size);
 		height: var(--size);
 		object-fit: contain;
-		filter: invert(var(--invert)) opacity(0.5) grayscale(100%);
 		transition: filter 0.2s;
+		filter: invert(var(--invert)) opacity(0.5) grayscale(100%);
 	}
 
 	.platforms a:hover img,
 	.platforms a:focus-visible img {
-		filter: invert(var(--invert-hover));
 		transition: none;
+		filter: invert(var(--invert-hover));
 	}
 
 	.platforms a:hover span,
@@ -227,17 +227,17 @@
 
 		.platforms {
 			display: grid;
+			align-items: center;
 			grid-template-columns: none;
 			grid-template-rows: repeat(4, 1fr);
-			align-items: center;
 		}
 
 		.platforms a {
+			gap: 2rem;
+			height: 100%;
 			--direction: -1;
 			flex-direction: row;
 			align-items: center;
-			gap: 2rem;
-			height: 100%;
 		}
 
 		.platforms.left {
@@ -294,3 +294,4 @@
 		--invert-hover: 1;
 	}
 </style>
+
