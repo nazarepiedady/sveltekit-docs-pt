@@ -1,12 +1,12 @@
 <script>
-	import { Section } from '@sveltejs/site-kit/components';
 	import Video from './Video.svelte';
+	import { Section } from '@sveltejs/site-kit/components';
 </script>
 
 <Section --background="var(--background-1)">
 	<p class="definition">
 		<em>/ˈsvɛlt/</em> <span class="adjective">adjetivo</span>
-		<span class="description">atrativamente fina, graciosa e elegante</span>
+		<span class="description">atraente e fina, graciosa e elegante</span>
 	</p>
 
 	<div class="grid" style="--columns: 3">
@@ -30,7 +30,7 @@
 			</p>
 
 			<p>
-				Mas não acredite na nossa palavra. Os programadores constantemente classificam a Svelte como a abstração que estão
+				Porém não acredite na nossa palavra. Os programadores constantemente classificam a Svelte como a abstração que estão
 				<a
 					target="_blank"
 					rel="noreferrer"
