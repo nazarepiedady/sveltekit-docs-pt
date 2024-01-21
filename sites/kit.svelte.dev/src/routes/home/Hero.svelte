@@ -1,8 +1,6 @@
 <script>
 	import { base } from '$app/paths';
 	import Logotype from './svelte-kit-logotype.svg.svelte';
-	import Image from '$lib/Image.svelte';
-	import background from './svelte-kit-machine.webp?w=1440;960';
 </script>
 
 <section class="hero">
@@ -16,8 +14,13 @@
 			<a href="{base}/docs/introduction" class="cta"> ler a documentação </a>
 		</div>
 
-		<div class="hero-image">
-			<Image src={background} alt="Ilustração da SvelteKit" />
+		<div class="hero-image-wrapper">
+			<enhanced:img
+				src="./svelte-kit-machine.webp?w=1440;1080;768;640"
+				sizes="(min-width: 768px) min(100vw, 108rem), 64rem"
+				class="hero-image"
+				alt="Ilustração da SvelteKit"
+			/>
 		</div>
 	</div>
 </section>
@@ -50,18 +53,18 @@
 			linear-gradient(0deg, hsl(204, 38%, 20%), hsl(204, 10%, 90%));
 
 		max-width: 100vw;
-		background: hsl(210, 7%, 84%);
-		background: var(--gradient);
-		background-blend-mode: hard-light, multiply, normal;
 		position: relative;
-		padding: 8rem var(--sk-page-padding-side);
 		margin-bottom: 2rem;
+		background: var(--gradient);
+		background: hsl(210, 7%, 84%);
+		padding: 8rem var(--sk-page-padding-side);
+		background-blend-mode: hard-light, multiply, normal;
 	}
 
 	.hero-contents {
-		position: relative;
-		max-width: 48rem;
 		margin: 0 auto;
+		max-width: 48rem;
+		position: relative;
 		padding-bottom: 10rem;
 	}
 
@@ -70,61 +73,62 @@
 	}
 
 	.hero .tagline {
-		font-size: var(--sk-text-l);
+		margin: 0 auto;
+		max-width: 12em;
 		font-weight: 200;
 		line-height: 1.2;
 		color: var(--sk-text-2);
+		font-size: var(--sk-text-l);
 		font-family: var(--sk-font);
-		max-width: 12em;
-		margin: 0 auto;
 	}
 
 	.logotype :global(svg) {
-		position: relative;
 		width: 100%;
 		max-width: 400px;
+		position: relative;
 		margin: 0 0 1rem 0;
 	}
 
-	.hero-image {
+	.hero-image-wrapper {
 		--size: 64rem;
-		position: absolute;
-		left: calc(50% - 0.53 * var(--size));
 		bottom: -30rem;
+		position: absolute;
 		pointer-events: none;
+		left: calc(50% - 0.53 * var(--size));
 	}
 
-	/* this sucks but it's the best we can do.
-	   https://github.com/sveltejs/svelte/issues/2870#issuecomment-1161082065 */
-	.hero-image :global(img) {
+	.hero-image {
+		height: auto;
+		object-fit: cover;
 		width: var(--size);
 		aspect-ratio: 4 / 3;
-		object-fit: cover;
 	}
 
 	.cta {
-		display: inline-block;
-		align-items: center;
 		gap: 0.1rem;
-		background: var(--sk-theme-1);
-		padding: 0.35em 0.8em;
-		width: max-content;
-		margin-top: 1.6rem;
-		font-size: var(--sk-text-s);
-		letter-spacing: 0.05em;
-		font-weight: 600;
-		white-space: nowrap;
-		border-radius: var(--sk-border-radius);
-		box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.08);
 		color: #fff;
-		color: color-mix(in hwb, hsl(var(--sk-theme-1-hsl)) 10%, var(--sk-back-1) 95%);
+		font-weight: 600;
+		margin-top: 1.6rem;
+		width: max-content;
+		align-items: center;
+		white-space: nowrap;
+		display: inline-block;
+		padding: 0.35em 0.8em;
+		letter-spacing: 0.05em;
+		font-size: var(--sk-text-s);
+		background: var(--sk-theme-1);
 		transition: 0.5s var(--quint-out);
 		transition-property: box-shadow, color;
+		border-radius: var(--sk-border-radius);
+		box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.08);
+		color: color-mix(in hwb, hsl(var(--sk-theme-1-hsl)) 10%, var(--sk-back-1) 95%);
 	}
 
 	.cta:hover {
 		text-decoration: none;
-		box-shadow: 0px 0.8px 3.8px rgba(0, 0, 0, 0.115), 0px 6px 30px rgba(0, 0, 0, 0.23);
+		box-shadow:
+			0px 0.8px 3.8px rgba(0, 0, 0, 0.115),
+			0px 6px 30px rgba(0, 0, 0, 0.23);
 	}
 
 	@media (min-width: 400px) {
@@ -138,18 +142,18 @@
 			padding: calc(10rem + var(--sk-nav-height)) var(--sk-page-padding-side) 16rem;
 		}
 		.hero-contents {
-			max-width: calc(120rem - 2 * var(--sk-page-padding-side));
 			padding-bottom: 0rem;
+			max-width: calc(120rem - 2 * var(--sk-page-padding-side));
 		}
 
 		.hero-text {
 			text-align: left;
 		}
 
-		.hero-image {
-			--size: min(100vw, 108rem);
+		.hero-image-wrapper {
 			left: auto;
 			right: -20rem;
+			--size: min(100vw, 108rem);
 			bottom: calc(-5rem - 0.38 * var(--size));
 		}
 
