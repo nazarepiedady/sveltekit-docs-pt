@@ -5,14 +5,13 @@
 		<span class="dot" />
 		<span class="title">terminal</span>
 	</div>
-	<pre><code
-			><span class="line"
-				>npm create <span class="orange-highlight">svelte</span>@latest my-app</span
-			>
-<span class="line">cd my-app</span>
-<span class="line">npm install</span>
-<span class="line">npm run dev -- --open</span></code
-		></pre>
+	<pre>
+		<code>
+			<span class="line">npm create <span class="orange-highlight">svelte</span>@latest my-app</span>
+			<span class="line">cd my-app</span>
+			<span class="line">npm install</span>
+			<span class="line">npm run dev -- --open</span></code>
+	</pre>
 </div>
 
 <style>
