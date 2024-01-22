@@ -49,7 +49,7 @@
 
 				<Separator />
 
-				<a href="https://svelte.dev/chat" rel="external" title="Discord Chat">
+				<a href="https://svelte.dev/chat" rel="external" title="Conversas da Discord">
 					<span class="small">Discord</span>
 					<span class="large"><Icon name="discord" /></span>
 				</a>
