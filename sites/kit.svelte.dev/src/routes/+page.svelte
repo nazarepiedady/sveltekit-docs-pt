@@ -72,7 +72,7 @@
 				<a href="https://twitter.com/sveltejs">twitter</a>
 			</div>
 			<div class="copyright">
-				Direitos de Autor © 2023 <a href="https://github.com/sveltejs/svelte/graphs/contributors">colaboradores da Svelte</a>
+				© 2023 <a href="https://github.com/sveltejs/svelte/graphs/contributors">colaboradores da Svelte</a>
 			</div>
 			<div class="open-source">
 				SvelteKit é um projeto <a href="https://github.com/sveltejs/kit">gratuito e de código-aberto</a> lançado sob a licença MIT
